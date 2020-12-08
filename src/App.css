@@ -62,6 +62,48 @@ a {
     text-transform: lowercase;
 }
 
+.sidebar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.left-sidebar {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.right-sidebar {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Button {
+    border-width: 2px;
+    width: 12vw;
+    font-weight: normal;
+    letter-spacing: 0;
+    padding: 0.9em 1em 1em;
+    font-size: 28px;
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+    color: black;
+    border-color: black;
+    font-family: "Mabry Pro", sans-serif !important;
+    border-radius: 50%;
+    line-height: 1em;
+    margin-bottom: 10px;
+}
+.Button:hover {
+    background: #fff200;
+    color: #000000;
+}
 
 .nav-bar-title {
     letter-spacing: .5rem;
@@ -76,7 +118,6 @@ a {
     justify-content: center;
     cursor: pointer;
     text-decoration: underline;
-    /* text-transform: lowercase; */
 }
 
 .nav-bar-link:hover {

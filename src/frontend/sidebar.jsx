@@ -12,6 +12,8 @@ class SideBar extends React.Component {
                 <label></label>
                 <input></input>
                 <input></input>
+                <button className="Button">Walk => </button>  
+                {/* we will render either "Bike" or "Walk" depending on what the user inputs */}
             </div>
 
             <div className='map-container'>
