@@ -1,13 +1,18 @@
 import './App.css';
+import ShowMap from './frontend/map/map';
+import TopNavContainer from './frontend/top-nav-container'
+import Footer from './frontend/footer'
 import SideBar from './frontend/sidebar';
 
 function App() {
 
   return (
     <div className="App">
-      {/* topbar */}
-
-        <SideBar />   
+      <header className="App-header">   
+        <TopNavContainer/>
+        <SideBar/>
+        <Footer/>
+      </header>
     </div>
   );
 }
