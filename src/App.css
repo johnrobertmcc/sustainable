@@ -83,7 +83,10 @@ a {
   justify-content: space-around;
   align-items: center;
 }
-
+.bicycle-image {
+  height: 10px;
+  width: 10px;
+}
 .Button {
     border-width: 2px;
     width: 12vw;
@@ -93,16 +96,18 @@ a {
     font-size: 28px;
     text-align: center;
     transition: all 0.15s ease-in-out;
-    color: black;
     border-color: black;
     font-family: "Mabry Pro", sans-serif !important;
     border-radius: 50%;
     line-height: 1em;
     margin-bottom: 10px;
-}
-.Button:hover {
     background: #fff200;
     color: #000000;
+}
+
+.Button:hover {
+    color: #fff200;
+    background: #000000;
 }
 
 .nav-bar-title {
@@ -126,8 +131,8 @@ a {
 }
 
 #white-splash-logo {
-     width:130px;
-     height: auto;
+    width:130px;
+    height: auto;
 }
 
 .nav-bar-link {

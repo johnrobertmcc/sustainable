@@ -11,7 +11,8 @@ class SideBar extends React.Component {
             <div className='left-sidebar'>
                 <label></label>
                 <input></input>
-                <input></input>
+                <input></input>      
+                {/* <img className="bicycle-image" src="../stylesheets/bicycle.png" alt=""/> */}
                 <button className="Button">Walk => </button>  
                 {/* we will render either "Bike" or "Walk" depending on what the user inputs */}
             </div>
