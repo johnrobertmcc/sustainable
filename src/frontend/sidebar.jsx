@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Map from './map/map';
+import bicycle from "../stylesheets/bicycle.png";
+import walking from "../stylesheets/walking.png";
 
 class SideBar extends React.Component {
 
@@ -12,7 +14,10 @@ class SideBar extends React.Component {
                 <label></label>
                 <input></input>
                 <input></input>      
-                {/* <img className="bicycle-image" src="../stylesheets/bicycle.png" alt=""/> */}
+                <div className="walk-bike-button-options">Mode:
+                <img className="bicycle-image" src={walking} alt=""/>
+                <img className="bicycle-image" src={bicycle} alt=""/>
+                </div>
                 <button className="Button">Walk => </button>  
                 {/* we will render either "Bike" or "Walk" depending on what the user inputs */}
             </div>
