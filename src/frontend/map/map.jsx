@@ -1,5 +1,6 @@
 import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import key from '../config/key'
  
 const containerStyle = {
   width: '90vw',
@@ -26,7 +27,7 @@ function ShowMap() {
  
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyAr50AZY0DDoBUqmy88GwWmE_1MAyLA8zg"
+      googleMapsApiKey={key}
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
