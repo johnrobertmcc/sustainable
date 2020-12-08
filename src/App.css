@@ -25,10 +25,12 @@ a {
     height: 80px;
     background-color: black;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     z-index: 100;
 }
-
 
 .nav-bar-links {
     color: white;
@@ -39,23 +41,29 @@ a {
      display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     cursor: pointer;
+    text-transform: lowercase;
+}
+
+
+.nav-bar-title {
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    font-weight: 900;
+    font-size: 32px;
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-transform: lowercase;
 }
 
 .nav-bar-link:hover {
-    color: #1ED760; 
+    color: ; 
     cursor: pointer;
-}
-
-.nav-bar-inner-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 }
 
 #white-splash-logo {
