@@ -1,6 +1,7 @@
 import './App.css';
 import ShowMap from './frontend/map/map';
 import TopNavContainer from './frontend/top-nav-container'
+import Footer from './frontend/footer'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
       <header className="App-header">   
         <TopNavContainer/>
         <ShowMap/>
+        <Footer/>
       </header>
     </div>
   );

@@ -1,6 +1,9 @@
+@import url(//db.onlinewebfonts.com/c/04c4a36facccf2d0906a0f1ed61036ef?family=Favorit);
+
 .App {
   text-align: center;
   background-color: #264DF9;
+  font-family: Favorit;
 }
 
 .App-header {
@@ -12,7 +15,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 80%;
 }
+
+@font-face {font-family: "Favorit"; src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot"); 
+  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot?#iefix") format("embedded-opentype");
+  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.woff2") format("woff2");
+  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.woff") format("woff");
+  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.ttf") format("truetype");
+  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.svg#Favorit") format("svg"); }
 
 body {
   background-color: #264DF9;
@@ -53,17 +64,19 @@ a {
 
 
 .nav-bar-title {
+    letter-spacing: .5rem;
     color: white;
     padding: 10px;
     margin: 10px;
     font-weight: 900;
-    font-size: 32px;
+    font-size: 36px;
      display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    text-transform: lowercase;
+    text-decoration: underline;
+    /* text-transform: lowercase; */
 }
 
 .nav-bar-link:hover {
@@ -119,4 +132,33 @@ a {
 
 .nav-bar-playlist-name:hover {
     color: white;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  color: #264DF9;
+}
+
+.footer-inner-container {
+  margin-top: 10px;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  padding: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
 }
