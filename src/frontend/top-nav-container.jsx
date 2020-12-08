@@ -8,7 +8,7 @@ render() {
         </div>
         <div className="nav-bar-title">walk this way
         </div>
-        <div className="nav-bar-links">Help
+        <div className="nav-bar-links">help
         </div>
     </div>
   );
