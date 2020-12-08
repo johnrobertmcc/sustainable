@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Map from './map/map';
 
-
-
 class SideBar extends React.Component {
 
 
@@ -11,7 +9,9 @@ class SideBar extends React.Component {
         
         <div className='sidebar-container'>
             <div className='left-sidebar'>
-                This is the left sidebar
+                <label></label>
+                <input></input>
+                <input></input>
             </div>
 
             <div className='map-container'>
