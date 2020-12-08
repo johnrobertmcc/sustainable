@@ -36,16 +36,22 @@ a {
 
 .nav-bar-container {
     position: absolute;
-    top: 0;
+    top: 1%;
     width: 100%;
-    height: 80px;
-    background-color: #264DF9;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     z-index: 100;
+}
+
+.top-banner {
+  top: 0;
+  width: 100%;
+  height: 1%;
+  background-color: #fff200;
 }
 
 .nav-bar-links {
