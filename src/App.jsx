@@ -1,13 +1,13 @@
 import './App.css';
 import ShowMap from './frontend/map/map';
+import SideBar from './frontend/sidebar';
 
 function App() {
 
   return (
     <div className="App">
-      <header className="App-header">   
+        <SideBar/>   
         <ShowMap/>
-      </header>
     </div>
   );
 }

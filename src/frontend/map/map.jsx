@@ -2,8 +2,8 @@ import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
  
 const containerStyle = {
-  width: '100vw',
-  height: '100vh'
+  width: '90vw',
+  height: '90vh'
 };
  
 const center = {
