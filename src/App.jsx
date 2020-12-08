@@ -2,6 +2,7 @@ import './App.css';
 import ShowMap from './frontend/map/map';
 import TopNavContainer from './frontend/top-nav-container'
 import Footer from './frontend/footer'
+import SideBar from './frontend/sidebar';
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">   
         <TopNavContainer/>
-        <ShowMap/>
+        <SideBar/>
         <Footer/>
       </header>
     </div>
