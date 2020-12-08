@@ -4,8 +4,6 @@ import { createRoute } from '../../actions/routes_actions';
 import RouteForm from './route_form';
 import {withRouter} from 'react-router-dom';
 
-
-
 const mapStateToProps = state =>({
   route:{
       route_name:'',
