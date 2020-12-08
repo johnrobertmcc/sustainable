@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Map from './map/map';
+import Directions from './map/directions';
 
 class SideBar extends React.Component {
 
@@ -9,9 +10,7 @@ class SideBar extends React.Component {
         
         <div className='sidebar-container'>
             <div className='left-sidebar'>
-                <label></label>
-                <input></input>
-                <input></input>
+                <Directions />
             </div>
 
             <div className='map-container'>
