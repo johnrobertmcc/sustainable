@@ -2,14 +2,22 @@ import React from 'react';
 import Map from './map/map';
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
+import { 
+  LoadScript, 
+  Autocomplete
+  } from '@react-google-maps/api';
+import Geocode from "react-geocode";
+import key from './config/key'
+Geocode.setApiKey(key)
+
 class SideBar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       response: null,
       travelMode: 'WALKING',
-      origin: '',
-      destination: ''
+      origin: {lat: 40.7, lng:-73.99},
+      destination: {}
     }
     //!!! still unsure why this is necessary !!!!
     this.directionsCallback = this.directionsCallback.bind(this)
@@ -19,9 +27,8 @@ class SideBar extends React.Component {
     this.checkTransit = this.checkTransit.bind(this)
     this.checkWalking = this.checkWalking.bind(this)
     //these are the origin/destination to be passed to map.jsx
-    this.getOrigin = this.getOrigin.bind(this)
-    this.getDestination = this.getDestination.bind(this)
-    //duh
+ this.getOrigin = this.getOrigin.bind(this)
+    this.getDestination = this.getDestination.bind(this)    //duh
     this.onClick = this.onClick.bind(this)
     this.onMapClick = this.onMapClick.bind(this)
   }
@@ -71,22 +78,40 @@ class SideBar extends React.Component {
         })
       )
   }
+
+
   getOrigin (ref) {
     this.origin = ref
   }
+
   getDestination (ref) {
-    // debugger
     this.destination = ref
   }
+
   onClick () {
+    
     if (this.origin.value !== '' && this.destination.value !== '') {
-    //   debugger
-      this.setState(
-        () => ({
-          origin: this.origin.value,
-          destination: this.destination.value
-        })
-      )
+      Geocode.fromAddress(this.origin.value).then( res => {
+        const {lat, lng} = res.results[0].geometry.location;
+             this.setState( () => ({
+                  origin:{lat: lat, lng: lng}
+              }))
+          },
+          error => {
+            console.error(error);
+          }
+        );
+       Geocode.fromAddress(this.destination.value).then( res => {
+        const {lat, lng} = res.results[0].geometry.location;
+             this.setState( () => ({
+                  destination:{lat: lat, lng: lng}
+              }))
+          },
+          error => {
+            console.error(error);
+          }
+        );
+      debugger
     }
   }
   onMapClick (...args) {
@@ -94,34 +119,71 @@ class SideBar extends React.Component {
   }
   render() {
       const origin = { //take these from directions origin
-        lat: 48,
-        lng: -120
+        lat: this.state.origin.lat,
+        lng: this.state.origin.lng
       };
       const destination = {
-        lat: 50,
-        lng: -122
+        lat: this.state.destination.lat,
+        lng: this.state.destination.lng
       }
       return(
       <div className='sidebar-container'>
+        <LoadScript
+        googleMapsApiKey={key}
+        libraries={["places"]}
+        >
+          <Autocomplete
+              onLoad={this.onLoad}
+              onPlaceChanged={this.onPlaceChanged}
+              >
+              <input
+                type="text"
+                placeholder="enter an origin"
+                ref={this.getOrigin}
+                style={{
+                  boxSizing: `border-box`,
+                  border: `1px solid transparent`,
+                  width: `240px`,
+                  height: `25px`,
+                  padding: `0 12px`,
+                  borderRadius: `3px`,
+                  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                  fontSize: `14px`,
+                  outline: `none`,
+                  textOverflow: `ellipses`,
+                  position: "absolute",
+                  // marginTop:'25px'
+                }}
+                />
+            </Autocomplete>
+            <Autocomplete
+                onLoad={this.onLoad}
+                onPlaceChanged={this.onPlaceChanged}
+                >
+                <input
+                  type="text"
+                  placeholder="enter a destination"
+                  ref={this.getDestination}
+                  style={{
+                    boxSizing: `border-box`,
+                    border: `1px solid transparent`,
+                    width: `240px`,
+                    height: `25px`,
+                    padding: `0 12px`,
+                    borderRadius: `3px`,
+                    boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                    fontSize: `14px`,
+                    outline: `none`,
+                    textOverflow: `ellipses`,
+                    position: "absolute",
+                    marginTop:'75px'
+                  }}
+                  />
+              </Autocomplete>
+          </LoadScript>
           <div className="left-sidebar">
           <div className='map-settings'>
-          <div className='row'>
-              <div className='col-md-6 col-lg-4'>
-              <div className='form-group'>
-                  <label htmlFor='ORIGIN'>Origin</label>
-                  <br />
-                  <input id='ORIGIN' className='form-control' type='text' ref={this.getOrigin} />
-              </div>
-              </div>
-              <div className='col-md-6 col-lg-4'>
-              <div className='form-group'>
-                  <label htmlFor='DESTINATION'>Destination</label>
-                  <br />
-                  <input id='DESTINATION' className='form-control' type='text' ref={this.getDestination} />
-              </div>
-              </div>
-          </div>
-          
+        
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
               <input

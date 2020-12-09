@@ -6,8 +6,7 @@ import {
   Autocomplete, 
   DirectionsRenderer, 
   DirectionsService, 
-  Marker,
-  StandaloneSearchBox 
+  Marker
   } from '@react-google-maps/api';
 import key from '../config/key'
  
@@ -79,7 +78,7 @@ class ShowMap extends React.Component {
         // onLoad={onLoad}
         // onUnmount={onUnmount}
         >
-           <StandaloneSearchBox
+           {/* <StandaloneSearchBox
             onLoad={this.onLoad}
             onPlaceChanged={this.onPlaceChanged}
           >
@@ -102,7 +101,7 @@ class ShowMap extends React.Component {
                 marginLeft: "-120px"
               }}
             />
-          </StandaloneSearchBox>
+          </StandaloneSearchBox> */}
         <Marker position={this.props.origin}/>
         <Marker position={this.props.destination}/>
         <Polyline path={path} options={options}/>
