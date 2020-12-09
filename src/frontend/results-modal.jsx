@@ -22,6 +22,7 @@ class ResultsModal extends React.Component {
     }
 
     calculateCarbon(miles) {
+        debugger
         let carNum = 404 * 2 * miles
         let transitNum = 204 * 2 * miles
         let bikeNum = 0 
@@ -52,6 +53,7 @@ class ResultsModal extends React.Component {
 
             </div>
             <div className="results-container">
+                {/* {this.calculateCarbon()} */}
 
                     <div className="car-results">{this.state.car}</div>
                     
