@@ -7,7 +7,6 @@ class ResultsModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isOpen: true,
             car: "",
             transit: "",
             bike: 0,
@@ -21,7 +20,9 @@ class ResultsModal extends React.Component {
         this.props.toggleModal();
     }
 
-    calculateCarbon(miles) {
+    calculateCarbon(distance) {
+        let miles = parseFloat(distance)
+
         let carNum = 404 * 2 * miles
         let transitNum = 204 * 2 * miles
         let bikeNum = 0 
@@ -39,6 +40,7 @@ class ResultsModal extends React.Component {
     render() {
         // console.log("hydrate")
         return (
+            <div className="modal-outer-container">
         <div className="modal-container">
              <div className="x-icon">
               <button
@@ -61,7 +63,7 @@ class ResultsModal extends React.Component {
 
             </div>
         </div>
-
+</div>
         )
     }
 

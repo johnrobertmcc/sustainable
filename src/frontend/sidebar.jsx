@@ -23,8 +23,7 @@ class SideBar extends React.Component {
       buttonMode: 'WALK',
       origin: {},
       destination: {},
-      searched: false,
-      isOpen: false
+      searched: false
     }
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
@@ -43,10 +42,17 @@ class SideBar extends React.Component {
   }
 
    toggleModal() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  }
+       let modal = document.getElementsByClassName("modal-outer-container")
+       if(modal[0].style.display= "none") {
+                for(let i = 0; i < modal.length; i++){
+                    modal[i].style.display = 'block'
+                } 
+         } else {
+                 for(let i = 0; i < modal.length; i++){
+                     modal[i].style.display = 'none'
+                } 
+        }
+   }
 
   handleCarModeClick() {
     let carTab = document.getElementsByClassName("car-image")
@@ -295,15 +301,15 @@ class SideBar extends React.Component {
               </label>
               </div>
           </div>
-          <div className="results-modal-container" onClick={this.toggleModal}> 
-            <button type='button' onClick={this.onClick} className="Button">
+          <div className="results-modal-container" > 
+            <button type='button' onClick={this.toggleModal} className="Button">
                 {this.state.buttonMode}
             </button>
-            {/* <ResultsModal
+            <ResultsModal
             travelMode={this.state.travelMode}
             toggleModal={this.toggleModal}
             show={this.state.isOpen}
-            /> */}
+            />
           </div>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
