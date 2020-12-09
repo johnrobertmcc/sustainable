@@ -1,9 +1,42 @@
 import React from 'react'
-import { GoogleMap, LoadScript, Polyline, DirectionsRenderer, DirectionsService, Marker } from '@react-google-maps/api';
+import { 
+  GoogleMap, 
+  LoadScript, 
+  Polyline, 
+  Autocomplete, 
+  DirectionsRenderer, 
+  DirectionsService, 
+  Marker,
+  StandaloneSearchBox 
+  } from '@react-google-maps/api';
 import key from '../config/key'
  
  
 class ShowMap extends React.Component {
+
+    constructor (props) {
+    super(props)
+
+    this.autocomplete = null
+
+    this.onLoad = this.onLoad.bind(this)
+    this.onPlaceChanged = this.onPlaceChanged.bind(this)
+  }
+
+  onLoad (autocomplete) {
+    console.log('autocomplete: ', autocomplete)
+
+    this.autocomplete = autocomplete
+  }
+
+  onPlaceChanged () {
+    if (this.autocomplete !== null) {
+      console.log(this.autocomplete.getPlace())
+    } else {
+      console.log('Autocomplete is not loaded yet!')
+    }
+  }
+
 
  
   render(){
@@ -13,18 +46,16 @@ class ShowMap extends React.Component {
     };
 
     const path = [ //for polyline
-      {lat: 37.772, lng: -122.214},
-      {lat: 21.291, lng: -157.821},
-      {lat: -18.142, lng: 178.431},
-      {lat: -27.467, lng: 153.027}
+      this.props.origin,
+      this.props.destination
     ];
 
     const options = { //for the polyline
-      strokeColor: '#FF0000',
+      strokeColor: '#404040',
       strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
+      strokeWeight: 1,
+      fillColor: '#404040',
+      fillOpacity: 0.1,
       clickable: false,
       draggable: true,
       editable: true,
@@ -33,19 +64,24 @@ class ShowMap extends React.Component {
       zIndex: 9
     };
 
+    
+
 
     return (
       <LoadScript
       googleMapsApiKey={key}
+      libraries={["places"]}
       >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={this.props.center}
-        zoom={10}
+        center={this.props.origin}
+        zoom={8}
         // onLoad={onLoad}
         // onUnmount={onUnmount}
         >
-     
+        <Marker position={this.props.origin}/>
+        <Marker position={this.props.destination}/>
+        <Polyline path={path} options={options}/>
       </GoogleMap>
     </LoadScript>
   )
