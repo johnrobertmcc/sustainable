@@ -200,7 +200,13 @@ a {
   color: black;
   font-size: 24px;
 }
-
+.bio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 20vw;
+  height: 12vh;
+}
 .form-control {
     font-size: 18px;
     outline: none;

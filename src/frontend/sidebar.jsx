@@ -183,6 +183,16 @@ class SideBar extends React.Component {
           </div>
           <button type='button' onClick={this.onClick} className="Button">Walk =>
           </button>
+        <div className="bio-container">
+        {/* <div className="subheader">By:</div> */}
+         <div className="subheader">
+             <a href="">
+             Drew Shroyer
+             </a>
+             </div>
+         <div className="subheader">
+             <a href="">JR McCann</a></div>
+         </div>
           </div>
         </div>
           <div className='map-container'>
