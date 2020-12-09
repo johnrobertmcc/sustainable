@@ -3,6 +3,7 @@ import Map from './map/map';
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
 
+
 class SideBar extends React.Component {
 
 
@@ -11,6 +12,7 @@ class SideBar extends React.Component {
         
         <div className='sidebar-container'>
             <div className='left-sidebar'>
+
                 <label></label>
                 <input></input>
                 <input></input> 
@@ -21,6 +23,7 @@ class SideBar extends React.Component {
                 </div>
                 <button className="Button">Walk => </button>  
                 {/* we will render either "Bike" or "Walk" depending on what the user inputs */}
+
             </div>
 
             <div className='map-container'>
