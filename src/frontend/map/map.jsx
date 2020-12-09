@@ -2,12 +2,9 @@ import React from 'react'
 import { 
   GoogleMap, 
   LoadScript, 
-  Polyline, 
-  Autocomplete, 
   DirectionsRenderer, 
   DirectionsService, 
-  Marker,
-  StandaloneSearchBox 
+  Marker
   } from '@react-google-maps/api';
 import key from '../config/key'
  
@@ -21,7 +18,35 @@ class ShowMap extends React.Component {
 
     this.onLoad = this.onLoad.bind(this)
     this.onPlaceChanged = this.onPlaceChanged.bind(this)
+
+    this.state = {directions: null}
   }
+
+//   componentDidUpdate() {
+
+//     let {origin, destination, searched} = this.props;
+    
+//     if(searched){
+//       debugger
+//       DirectionsService(
+//         {
+//             origin,
+//             destination,
+//             travelMode: "WALKING"
+//         },
+//         (result, status) => {
+//             if (status === 'OK') {
+//                 console.log(result)
+//                 this.setState({
+//                     directions: result
+//                 });
+//             } else {
+//                 console.error(`error fetching directions ${result}`);
+//             }
+//         }
+//     );}
+// }
+
 
   onLoad (autocomplete) {
     console.log('autocomplete: ', autocomplete)
@@ -46,11 +71,6 @@ class ShowMap extends React.Component {
       borderRadius: '40px',
     };
 
-    const path = [ //for polyline
-      this.props.origin,
-      this.props.destination
-    ];
-
     const options = { //for the polyline
       strokeColor: '#404040',
       strokeOpacity: 0.8,
@@ -65,8 +85,8 @@ class ShowMap extends React.Component {
       zIndex: 9
     };
 
-    
 
+    debugger
 
     return (
       <LoadScript
@@ -75,38 +95,16 @@ class ShowMap extends React.Component {
       >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={this.props.origin}
-        zoom={8}
+        center={{lat: 40.7309, lng:-73.9973}}
+        zoom={15}
         // onLoad={onLoad}
         // onUnmount={onUnmount}
         >
-           <StandaloneSearchBox
-            onLoad={this.onLoad}
-            onPlaceChanged={this.onPlaceChanged}
-          >
-            <input
-              type="text"
-              placeholder="enter an address"
-              style={{
-                boxSizing: `border-box`,
-                border: `1px solid transparent`,
-                width: `240px`,
-                height: `32px`,
-                padding: `0 12px`,
-                borderRadius: `3px`,
-                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                fontSize: `14px`,
-                outline: `none`,
-                textOverflow: `ellipses`,
-                position: "absolute",
-                left: "50%",
-                marginLeft: "-120px"
-              }}
-            />
-          </StandaloneSearchBox>
         <Marker position={this.props.origin}/>
         <Marker position={this.props.destination}/>
-        <Polyline path={path} options={options}/>
+        {/* <DirectionsRenderer
+          directions={this.state.directions} 
+        /> */}
       </GoogleMap>
     </LoadScript>
   )
