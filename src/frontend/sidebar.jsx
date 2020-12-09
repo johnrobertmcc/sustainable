@@ -1,7 +1,10 @@
 import React from 'react';
 import Map from './map/map';
+import TopNavContainer from '../frontend/top-nav-container'
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
+import car from "../stylesheets/car.png";
+import transit from "../stylesheets/transit.png";
 import { 
   LoadScript, 
   Autocomplete
@@ -181,67 +184,81 @@ class SideBar extends React.Component {
               </Autocomplete>
           </LoadScript>
           <div className="left-sidebar">
+           <TopNavContainer/>
+           <div className="call-to-action">Check your Carbon Footprint</div>
+           <div className="subheader">directions</div>
           <div className='map-settings'>
-        
+
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
-              <input
-                  id='DRIVING'
-                  className='custom-control-input'
-                  name='travelMode'
-                  type='radio'
-                  checked={this.state.travelMode === 'DRIVING'}
-                  onChange={this.checkDriving}
-              />
-              <label className='custom-control-label' htmlFor='DRIVING'>Driving</label>
+                    <input
+                        id='DRIVING'
+                        className='custom-control-input'
+                        name='travelMode'
+                        type='hidden'
+                        checked={this.state.travelMode === 'DRIVING'}
+                        onChange={this.checkDriving}
+                    />
+                    <label className='custom-control-label' htmlFor='DRIVING'>
+                         <img className="car-image" src={car} alt=""/>
+                    </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
-              <input
-                  id='BICYCLING'
-                  className='custom-control-input'
-                  name='travelMode'
-                  type='radio'
-                  checked={this.state.travelMode === 'BICYCLING'}
-                  onChange={this.checkBicycling}
-              />
-              <label className='custom-control-label' htmlFor='BICYCLING'>
-                  <img className="bicycle-image" src={bicycle} alt=""/>
-              </label>
+                    <input
+                        id='BICYCLING'
+                        className='custom-control-input'
+                        name='travelMode'
+                        type='hidden'
+                        checked={this.state.travelMode === 'BICYCLING'}
+                        onChange={this.checkBicycling}
+                    />
+                    <label className='custom-control-label' htmlFor='BICYCLING'>
+                        <img className="bicycle-image" src={bicycle} alt=""/>
+                    </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
               <input
                   id='TRANSIT'
                   className='custom-control-input'
                   name='travelMode'
-                  type='radio'
+                  type='hidden'
                   checked={this.state.travelMode === 'TRANSIT'}
                   onChange={this.checkTransit}
               />
-              <label className='custom-control-label' htmlFor='TRANSIT'>Transit</label>
+              <label className='custom-control-label' htmlFor='TRANSIT'>
+                    <img className="transit-image" src={transit} alt=""/>
+              </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
               <input
                   id='WALKING'
                   className='custom-control-input'
                   name='travelMode'
-                  type='radio'
+                  type='hidden'
                   checked={this.state.travelMode === 'WALKING'}
                   onChange={this.checkWalking}
               />
               <label className='custom-control-label' htmlFor='WALKING'>
-                  <img className="bicycle-image" src={walking} alt=""/>
+                  <img className="car-image"  src={walking} alt=""/>
               </label>
               </div>
           </div>
           <button type='button' onClick={this.onClick} className="Button">Walk =>
           </button>
+        <div className="bio-container">
+        {/* <div className="subheader">By:</div> */}
+         <div className="subheader">
+             <a href="">
+             Drew Shroyer
+             </a>
+             </div>
+         <div className="subheader">
+             <a href="">JR McCann</a></div>
+         </div>
           </div>
         </div>
           <div className='map-container'>
                 <Map origin={origin} destination={destination} searched={searched}/>
-          </div>
-          <div className='right-sidebar'>
-              this is the right sidebar
           </div>
     </div>
       )

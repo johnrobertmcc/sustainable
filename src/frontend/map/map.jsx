@@ -66,8 +66,9 @@ class ShowMap extends React.Component {
  
   render(){
     const containerStyle = {
-      width: '50vw',
-      height: '50vh'
+      width: '45vw',
+      height: '81vh',
+      borderRadius: '40px',
     };
 
     const options = { //for the polyline
