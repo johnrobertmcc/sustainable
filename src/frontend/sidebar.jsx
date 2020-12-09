@@ -3,7 +3,7 @@ import Map from './map/map';
 import TopNavContainer from '../frontend/top-nav-container';
 import ResultsModal from "./results-modal";
 import bicycle from "../stylesheets/bicycle.png";
-import walking from "../stylesheets/walking.png";
+import walking from "../stylesheets/logo.png";
 import car from "../stylesheets/car.png";
 import transit from "../stylesheets/transit.png";
 import {
@@ -175,7 +175,6 @@ class SideBar extends React.Component {
             console.error(error);
           }
         ).then(() => {
-          debugger
           let {travelMode, origin, destination} = this.state;
 
             dService.route({
@@ -183,7 +182,6 @@ class SideBar extends React.Component {
               destination: new google.maps.LatLng([destination.lat],[destination.lng]),
               travelMode: google.maps.TravelMode.[travelMode],
             }, (result, status) => {
-              debugger
               if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,
