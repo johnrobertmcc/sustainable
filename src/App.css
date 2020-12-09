@@ -86,6 +86,7 @@ a {
     text-transform: lowercase;
 }
 
+
 .sidebar-container {
   display: flex;
   flex-direction: row;
@@ -293,4 +294,40 @@ background-color: #D2F0D2;
 
 a:hover {
   text-decoration: underline;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: none;
+  position: fixed;
+  background-color: #000000;
+  height: 62vh;
+  width: 84vw;
+  border-radius: 40px;
+  top: 15vh;  
+  bottom: 0;
+  right: 0;
+  left: 8vw;
+  background: #026EE7; 
+  z-index: 1;
+}
+
+.x-icon {
+  margin-right: 20px;
+    font-weight: 100;
+    color: white;
+    font-size: 24px;
+    line-height: 56px;
+    text-align: center;
+}
+
+.x-icon-style {
+    background-color: transparent;
+    font-weight: 100;
+    color: white;
+    font-size: 24px;
+    border: none;
 }
