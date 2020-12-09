@@ -186,8 +186,10 @@ class SideBar extends React.Component {
               }
             });
 
-        }).then(() => 
-        {this.setState({searched: true})}
+        }).then(() => {
+            this.setState({searched: true})
+            this.toggleModal();
+          }
         );
     }
 
@@ -298,15 +300,16 @@ class SideBar extends React.Component {
               </label>
               </div>
           </div>
-          <div className="results-modal-container" onClick={this.toggleModal}> 
+          <div className="results-modal-container"> 
             <button type='button' onClick={this.onClick} className="Button">
                 {this.state.travelMode}
             </button>
-            {/* <ResultsModal
+            <ResultsModal
             travelMode={this.state.travelMode}
             toggleModal={this.toggleModal}
             show={this.state.isOpen}
-            /> */}
+            distance={this.state.distance}
+            />
           </div>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}

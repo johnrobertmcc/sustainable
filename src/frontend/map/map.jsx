@@ -49,7 +49,6 @@ class ShowMap extends React.Component {
           <Marker position={origin}/>
           <Marker position={destination}/>
           <DirectionsRenderer directions={directions} />
-          <DistanceMatrixService directions={directions} />
       
       </GoogleMap>
     </LoadScript>
