@@ -7,7 +7,6 @@ class ResultsModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isOpen: true,
             car: "",
             transit: "",
             bike: 0,
@@ -18,10 +17,15 @@ class ResultsModal extends React.Component {
     }
 
     handleClickforCancel() {
-        this.props.toggleModal();
+        let modal = document.getElementsByClassName("modal-outer-container")
+        for(let i = 0; i < modal.length; i++){
+                     modal[i].style.display = 'none'
+                } 
     }
 
-    calculateCarbon(miles) {
+    calculateCarbon(distance) {
+        let miles = parseFloat(distance)
+
         let carNum = 404 * 2 * miles
         let transitNum = 204 * 2 * miles
         let bikeNum = 0 
@@ -40,7 +44,7 @@ class ResultsModal extends React.Component {
     render() {
 
         return (
-    
+            <div className="modal-outer-container">
         <div className="modal-container">
              <div className="x-icon">
               <button
@@ -61,10 +65,10 @@ class ResultsModal extends React.Component {
 
                     <div className="bike-results">{this.state.bike}</div>
 
-            </div>
-        </div>
-
-        ) 
+              </div>
+          </div>
+       </div>
+        )
     }
 
 }

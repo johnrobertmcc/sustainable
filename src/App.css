@@ -53,7 +53,8 @@ a {
     height: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     z-index: 100;
     margin-top: 1vh;
 }
@@ -172,18 +173,18 @@ a {
 }
 
 .walk-image:hover {
-background-color: #D2F0D2;
+background-color: #FFF201;
 }
 
 .car-image:hover {
-  background-color: #D2F0D2;
+  background-color: #FFF201;
 }
 .transit-image:hover {
-  background-color: #D2F0D2;
+  background-color: #FFF201;
 }
 
 .bicycle-image:hover {
-  background-color: #D2F0D2;
+  background-color: #FFF201;
 }
 
 .Button {
@@ -242,20 +243,20 @@ background-color: #D2F0D2;
 
 .nav-bar-title {
     letter-spacing: .1rem;
-    color: #000000;
+    color: #171D1C;
     font-weight: 900;
     font-size: 24px;
-     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
+    text-decoration: underline;
+
 }
 
-.nav-bar-link:hover {
-    color: ; 
-    cursor: pointer;
+.logo {
+      height: 5vh;
+    width: auto;
+    margin-right: 1vw;
 }
+
 
 .nav-bar-link {
     margin: 0 20px;
@@ -294,6 +295,10 @@ background-color: #D2F0D2;
 
 a:hover {
   text-decoration: underline;
+}
+
+.modal-outer-container {
+  display: none;
 }
 
 .modal-container {
