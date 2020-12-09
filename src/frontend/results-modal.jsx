@@ -38,7 +38,6 @@ class ResultsModal extends React.Component {
     }
 
     render() {
-        // console.log("hydrate")
         return (
             <div className="modal-outer-container">
         <div className="modal-container">
