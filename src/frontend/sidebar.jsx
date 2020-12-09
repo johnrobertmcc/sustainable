@@ -2,16 +2,7 @@ import React from 'react';
 import Map from './map/map';
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
-import { 
-  GoogleMap, 
-  LoadScript, 
-  Polyline, 
-  Autocomplete, 
-  DirectionsRenderer, 
-  DirectionsService, 
-  Marker,
-  StandaloneSearchBox 
-  } from '@react-google-maps/api';
+
 
 class SideBar extends React.Component {
 
@@ -148,31 +139,7 @@ class SideBar extends React.Component {
               <div className='form-group'>
                   <label htmlFor='ORIGIN'>Origin</label>
                   <br />
-                  {/* <input id='ORIGIN' className='form-control' type='text' ref={this.getOrigin} /> */}
-                          <StandaloneSearchBox
-                              onLoad={this.onLoad}
-                              onPlaceChanged={this.onPlaceChanged}
-                            >
-                              <input
-                                type="text"
-                                placeholder="enter an address"
-                                style={{
-                                  boxSizing: `border-box`,
-                                  border: `1px solid transparent`,
-                                  width: `240px`,
-                                  height: `32px`,
-                                  padding: `0 12px`,
-                                  borderRadius: `3px`,
-                                  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                                  fontSize: `14px`,
-                                  outline: `none`,
-                                  textOverflow: `ellipses`,
-                                  position: "absolute",
-                                  left: "50%",
-                                  marginLeft: "-120px"
-                                }}
-                              />
-                            </StandaloneSearchBox>
+                  <input id='ORIGIN' className='form-control' type='text' ref={this.getOrigin} />
               </div>
               </div>
 

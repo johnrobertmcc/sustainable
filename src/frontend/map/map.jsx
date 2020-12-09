@@ -79,6 +79,30 @@ class ShowMap extends React.Component {
         // onLoad={onLoad}
         // onUnmount={onUnmount}
         >
+           <StandaloneSearchBox
+            onLoad={this.onLoad}
+            onPlaceChanged={this.onPlaceChanged}
+          >
+            <input
+              type="text"
+              placeholder="enter an address"
+              style={{
+                boxSizing: `border-box`,
+                border: `1px solid transparent`,
+                width: `240px`,
+                height: `32px`,
+                padding: `0 12px`,
+                borderRadius: `3px`,
+                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                fontSize: `14px`,
+                outline: `none`,
+                textOverflow: `ellipses`,
+                position: "absolute",
+                left: "50%",
+                marginLeft: "-120px"
+              }}
+            />
+          </StandaloneSearchBox>
         <Marker position={this.props.origin}/>
         <Marker position={this.props.destination}/>
         <Polyline path={path} options={options}/>
