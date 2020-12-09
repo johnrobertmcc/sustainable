@@ -40,7 +40,9 @@ class ResultsModal extends React.Component {
 
     }
 
+
     render() {
+
         return (
             <div className="modal-outer-container">
         <div className="modal-container">
@@ -63,9 +65,9 @@ class ResultsModal extends React.Component {
 
                     <div className="bike-results">{this.state.bike}</div>
 
-            </div>
-        </div>
-</div>
+              </div>
+          </div>
+       </div>
         )
     }
 
