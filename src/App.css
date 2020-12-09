@@ -53,7 +53,8 @@ a {
     height: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     z-index: 100;
     margin-top: 1vh;
 }
@@ -245,17 +246,15 @@ background-color: #D2F0D2;
     color: #000000;
     font-weight: 900;
     font-size: 24px;
-     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
 
-.nav-bar-link:hover {
-    color: ; 
-    cursor: pointer;
+.logo {
+      height: 5vh;
+    width: auto;
+    margin-right: 1vw;
 }
+
 
 .nav-bar-link {
     margin: 0 20px;

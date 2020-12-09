@@ -20,6 +20,7 @@ class SideBar extends React.Component {
     this.state = {
       response: null,
       travelMode: 'WALKING',
+      buttonMode: 'WALK',
       origin: {},
       destination: {},
       searched: false,
@@ -66,7 +67,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'DRIVING'
+          buttonMode: 'DRIVE'
         })
       )
   }
@@ -89,7 +90,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'WALKING'
+          buttonMode: 'WALK'
         })
       )
   }
@@ -112,7 +113,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'BICYCLING'
+          buttonMode: 'BIKE'
         })
       )
   }
@@ -135,7 +136,7 @@ class SideBar extends React.Component {
     }
      this.setState(
         () => ({
-          travelMode: 'TRANSIT'
+          buttonMode: 'TRANSIT'
         })
       )
   }
@@ -296,7 +297,7 @@ class SideBar extends React.Component {
           </div>
           <div className="results-modal-container" onClick={this.toggleModal}> 
             <button type='button' onClick={this.onClick} className="Button">
-                {this.state.travelMode}
+                {this.state.buttonMode}
             </button>
             {/* <ResultsModal
             travelMode={this.state.travelMode}
