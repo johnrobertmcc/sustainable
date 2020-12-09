@@ -7,7 +7,8 @@ import car from "../stylesheets/car.png";
 import transit from "../stylesheets/transit.png";
 import {
   LoadScript,
-  Autocomplete
+  Autocomplete,
+  DirectionsService
   } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import key from './config/key';
@@ -17,18 +18,11 @@ class SideBar extends React.Component {
     super(props)
     this.state = {
       response: null,
-      travelMode: 'WALK',
+      travelMode: 'WALKING',
       origin: {},
       destination: {},
       searched: false
     }
-    //!!! still unsure why this is necessary !!!!
-    this.directionsCallback = this.directionsCallback.bind(this)
-    //these are for the travelMode
-    this.checkDriving = this.checkDriving.bind(this)
-    this.checkBicycling = this.checkBicycling.bind(this)
-    this.checkTransit = this.checkTransit.bind(this)
-    this.checkWalking = this.checkWalking.bind(this)
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
     this.getDestination = this.getDestination.bind(this)
@@ -60,7 +54,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'DRIVE'
+          travelMode: 'DRIVING'
         })
       )
   }
@@ -83,7 +77,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'WALK'
+          travelMode: 'WALKING'
         })
       )
   }
@@ -106,7 +100,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'BIKE'
+          travelMode: 'BICYCLING'
         })
       )
   }
@@ -133,52 +127,7 @@ class SideBar extends React.Component {
         })
       )
   }
-  directionsCallback (response) {
-    console.log(response)
-    if (response !== null) {
-      if (response.status === 'OK') {
-        this.setState(
-          () => ({
-            response
-          })
-        )
-      } else {
-        console.log('response: ', response)
-      }
-    }
-  }
-  checkDriving ({ target: { checked } }) {
-    checked &&
-      this.setState(
-        () => ({
-          travelMode: 'DRIVE'
-        })
-      )
-  }
-  checkBicycling ({ target: { checked } }) {
-    checked &&
-      this.setState(
-        () => ({
-          travelMode: 'BIKE'
-        })
-      )
-  }
-  checkTransit ({ target: { checked } }) {
-    checked &&
-      this.setState(
-        () => ({
-          travelMode: 'TRANSIT'
-        })
-      )
-  }
-  checkWalking ({ target: { checked } }) {
-    checked &&
-      this.setState(
-        () => ({
-          travelMode: 'WALK'
-        })
-      )
-  }
+
   getOrigin (ref) {
     this.origin = ref
   }
@@ -186,6 +135,9 @@ class SideBar extends React.Component {
     this.destination = ref
   }
   onClick () {
+
+    let dService = new window.google.maps.DirectionsService();
+
     if (this.origin.value !== '' && this.destination.value !== '') {
       Geocode.fromAddress(this.origin.value).then( res => {
         let {lat, lng} = res.results[0].geometry.location;
@@ -194,7 +146,7 @@ class SideBar extends React.Component {
           error => {
             console.error(error);
           }
-        );
+        )
        Geocode.fromAddress(this.destination.value).then( res => {
           let {lat, lng} = res.results[0].geometry.location;
           this.setState({ destination:{lat: lat, lng: lng} })
@@ -202,15 +154,34 @@ class SideBar extends React.Component {
           error => {
             console.error(error);
           }
+        ).then(() => {
+          debugger
+            dService.route({
+              origin: [this.state.origin],
+              destination: [this.state.destination],
+              travelMode: [this.state.travelMode],
+            }, (result, status) => {
+              debugger
+              if (status === 'OK') {
+                this.setState({
+                  directions: result,
+                });
+              } else {
+                console.error(`error fetching directions ${result}`);
+              }
+            });
+
+        }).then(() => 
+        {this.setState({searched: true})}
         );
     }
-    this.setState({searched: true});
+
   }
   onMapClick (...args) {
     console.log('onClick args: ', args)
   }
   render() {
-      let {origin, destination, searched} = this.state;
+      let {origin, destination, searched, travelMode} = this.state;
       return(
       <div className='sidebar-container'>
           <div className="left-sidebar">
@@ -326,7 +297,7 @@ class SideBar extends React.Component {
           </div>
         </div>
           <div className='map-container'>
-                <Map origin={origin} destination={destination} searched={searched}/>
+                <Map origin={origin} destination={destination} travelMode={travelMode} searched={searched}/>
           </div>
     </div>
       )

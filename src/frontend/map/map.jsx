@@ -2,7 +2,8 @@ import React from 'react'
 import { 
   GoogleMap, 
   LoadScript, 
-  Marker
+  Marker,
+  DistanceMatrixService
   } from '@react-google-maps/api';
 import key from '../config/key'
  
@@ -14,6 +15,7 @@ class ShowMap extends React.Component {
 
     this.autocomplete = null
     this.onLoad = this.onLoad.bind(this)
+
   }
 
   onLoad (autocomplete) {
@@ -28,6 +30,7 @@ class ShowMap extends React.Component {
       height: '81vh',
       borderRadius: '40px',
     };
+    let {travelMode, origin, destination} = this.props;
 
     let center = Object.keys(this.props.origin).length === 0 ? {lat: 40.7309, lng:-73.9973} : this.props.origin;
 
@@ -42,8 +45,9 @@ class ShowMap extends React.Component {
         zoom={15}
         onLoad={this.onLoad}
         >
-          <Marker position={this.props.origin}/>
-          <Marker position={this.props.destination}/>
+          <Marker position={origin}/>
+          <Marker position={destination}/>
+      
       </GoogleMap>
     </LoadScript>
   )
