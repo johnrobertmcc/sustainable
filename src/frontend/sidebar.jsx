@@ -10,7 +10,8 @@ import {
   Autocomplete
   } from '@react-google-maps/api';
 import Geocode from "react-geocode";
-import key from './config/key'
+import key from './config/key';
+
 Geocode.setApiKey(key)
 
 class SideBar extends React.Component {
@@ -19,7 +20,7 @@ class SideBar extends React.Component {
     
     this.state = {
       response: null,
-      travelMode: 'WALKING',
+      travelMode: 'WALK',
       origin: {},
       destination: {},
       searched: false
@@ -41,7 +42,110 @@ class SideBar extends React.Component {
     //duh
     this.onClick = this.onClick.bind(this)
     this.onMapClick = this.onMapClick.bind(this)
+
+    // CSS javascript functions
+    this.handleCarModeClick = this.handleCarModeClick.bind(this);
+    this.handleWalkModeClick = this.handleWalkModeClick.bind(this);
+    this.handleBikeModeClick = this.handleBikeModeClick.bind(this);
+    this.handleTransitModeClick = this.handleTransitModeClick.bind(this);
   }
+
+  handleCarModeClick() {
+    let carTab = document.getElementsByClassName("car-image")
+    for(let i = 0; i < carTab.length; i++){
+        carTab[i].style.backgroundColor = '#D2F0D2'
+    }
+    let bikeTab = document.getElementsByClassName("bicycle-image")
+    for(let i = 0; i < bikeTab.length; i++){
+        bikeTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    let transitTab = document.getElementsByClassName("transit-image")
+    for(let i = 0; i < transitTab.length; i++){
+        transitTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    let walkTab = document.getElementsByClassName("walk-image")
+    for(let i = 0; i < walkTab.length; i++){
+        walkTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    this.setState(
+        () => ({
+          travelMode: 'DRIVE'
+        })
+      )
+  }
+
+  handleWalkModeClick() {
+    let walkTab = document.getElementsByClassName("walk-image")
+    for(let i = 0; i < walkTab.length; i++){
+        walkTab[i].style.backgroundColor = '#D2F0D2';
+    }
+    let carTab = document.getElementsByClassName("car-image")
+    for(let i = 0; i < carTab.length; i++){
+        carTab[i].style.backgroundColor = '#FFFFFF'
+    }
+    let bikeTab = document.getElementsByClassName("bicycle-image")
+    for(let i = 0; i < bikeTab.length; i++){
+        bikeTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    let transitTab = document.getElementsByClassName("transit-image")
+    for(let i = 0; i < transitTab.length; i++){
+        transitTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    this.setState(
+        () => ({
+          travelMode: 'WALK'
+        })
+      )
+  }
+
+  handleBikeModeClick() {
+    let bikeTab = document.getElementsByClassName("bicycle-image")
+    for(let i = 0; i < bikeTab.length; i++){
+        bikeTab[i].style.backgroundColor = '#D2F0D2';
+    }
+     let transitTab = document.getElementsByClassName("transit-image")
+    for(let i = 0; i < transitTab.length; i++){
+        transitTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    let walkTab = document.getElementsByClassName("walk-image")
+    for(let i = 0; i < walkTab.length; i++){
+        walkTab[i].style.backgroundColor = '#FFFFFF';
+    }
+    let carTab = document.getElementsByClassName("car-image")
+    for(let i = 0; i < carTab.length; i++){
+        carTab[i].style.backgroundColor = '#FFFFFF'
+    }
+    this.setState(
+        () => ({
+          travelMode: 'BIKE'
+        })
+      )
+  }
+
+  handleTransitModeClick() {
+     let transitTab = document.getElementsByClassName("transit-image")
+    for(let i = 0; i < transitTab.length; i++){
+        transitTab[i].style.background = '#D2F0D2';
+    }
+    let walkTab = document.getElementsByClassName("walk-image")
+    for(let i = 0; i < walkTab.length; i++){
+        walkTab[i].style.background = '#FFFFFF';
+    }
+    let carTab = document.getElementsByClassName("car-image")
+    for(let i = 0; i < carTab.length; i++){
+        carTab[i].style.background = '#FFFFFF'
+    }
+    let bikeTab = document.getElementsByClassName("bicycle-image")
+    for(let i = 0; i < bikeTab.length; i++){
+        bikeTab[i].style.background = '#FFFFFF';
+    }
+     this.setState(
+        () => ({
+          travelMode: 'TRANSIT'
+        })
+      )
+  }
+
   directionsCallback (response) {
     console.log(response)
     if (response !== null) {
@@ -60,7 +164,7 @@ class SideBar extends React.Component {
     checked &&
       this.setState(
         () => ({
-          travelMode: 'DRIVING'
+          travelMode: 'DRIVE'
         })
       )
   }
@@ -68,7 +172,7 @@ class SideBar extends React.Component {
     checked &&
       this.setState(
         () => ({
-          travelMode: 'BICYCLING'
+          travelMode: 'BIKE'
         })
       )
   }
@@ -84,7 +188,7 @@ class SideBar extends React.Component {
     checked &&
       this.setState(
         () => ({
-          travelMode: 'WALKING'
+          travelMode: 'WALK'
         })
       )
   }
@@ -127,7 +231,6 @@ class SideBar extends React.Component {
   render() {
 
       let {origin, destination, searched} = this.state;
-      debugger
 
       return(
       <div className='sidebar-container'>
@@ -188,6 +291,19 @@ class SideBar extends React.Component {
            <div className="call-to-action">Check your Carbon Footprint</div>
            <div className="subheader">directions</div>
           <div className='map-settings'>
+          <div className='row'>
+              <div className='col-md-6 col-lg-4'>
+                <div className='form-group'>                    <br />
+                    <input id='ORIGIN' placeholder="ORIGIN" className='form-control' type='text' ref={this.getOrigin} />
+                </div>
+              </div>
+              <div className='col-md-6 col-lg-4'>
+              <div className='form-group'>
+                  <br />
+                  <input id='DESTINATION' placeholder="DESTINATION" className='form-control' type='text' ref={this.getDestination} />
+              </div>
+              </div>
+          </div>
 
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
@@ -196,8 +312,9 @@ class SideBar extends React.Component {
                         className='custom-control-input'
                         name='travelMode'
                         type='hidden'
-                        checked={this.state.travelMode === 'DRIVING'}
+                        checked={this.state.travelMode === 'DRIVE'}
                         onChange={this.checkDriving}
+                        onClick={this.handleCarModeClick}
                     />
                     <label className='custom-control-label' htmlFor='DRIVING'>
                          <img className="car-image" src={car} alt=""/>
@@ -209,8 +326,9 @@ class SideBar extends React.Component {
                         className='custom-control-input'
                         name='travelMode'
                         type='hidden'
-                        checked={this.state.travelMode === 'BICYCLING'}
+                        checked={this.state.travelMode === 'BIKE'}
                         onChange={this.checkBicycling}
+                        onClick={this.handleBikeModeClick}
                     />
                     <label className='custom-control-label' htmlFor='BICYCLING'>
                         <img className="bicycle-image" src={bicycle} alt=""/>
@@ -224,6 +342,7 @@ class SideBar extends React.Component {
                   type='hidden'
                   checked={this.state.travelMode === 'TRANSIT'}
                   onChange={this.checkTransit}
+                  onClick={this.handleTransitModeClick}
               />
               <label className='custom-control-label' htmlFor='TRANSIT'>
                     <img className="transit-image" src={transit} alt=""/>
@@ -235,15 +354,16 @@ class SideBar extends React.Component {
                   className='custom-control-input'
                   name='travelMode'
                   type='hidden'
-                  checked={this.state.travelMode === 'WALKING'}
+                  checked={this.state.travelMode === 'WALK'}
                   onChange={this.checkWalking}
+                  onClick={this.handleWalkModeClick}
               />
               <label className='custom-control-label' htmlFor='WALKING'>
-                  <img className="car-image"  src={walking} alt=""/>
+                  <img className="walk-image"  src={walking} alt=""/>
               </label>
               </div>
           </div>
-          <button type='button' onClick={this.onClick} className="Button">Walk =>
+          <button type='button' onClick={this.onClick} className="Button">{this.state.travelMode}=>
           </button>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
