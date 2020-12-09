@@ -1,70 +1,103 @@
 import React from 'react'
-import { GoogleMap, LoadScript, Polyline, DirectionsRenderer, DirectionsService, Marker } from '@react-google-maps/api';
+import { 
+  GoogleMap, 
+  LoadScript, 
+  Polyline, 
+  Autocomplete, 
+  DirectionsRenderer, 
+  DirectionsService, 
+  Marker,
+  StandaloneSearchBox 
+  } from '@react-google-maps/api';
 import key from '../config/key'
  
-const containerStyle = {
-  width: '50vw',
-  height: '50vh'
-};
  
-const center = {
-  lat: 48,
-  lng: -120
-};
+class ShowMap extends React.Component {
 
-const path = [
-  {lat: 37.772, lng: -122.214},
-  {lat: 21.291, lng: -157.821},
-  {lat: -18.142, lng: 178.431},
-  {lat: -27.467, lng: 153.027}
-];
+    constructor (props) {
+    super(props)
 
-const options = {
-  strokeColor: '#FF0000',
-  strokeOpacity: 0.8,
-  strokeWeight: 2,
-  fillColor: '#FF0000',
-  fillOpacity: 0.35,
-  clickable: false,
-  draggable: true,
-  editable: true,
-  visible: true,
-  radius: 30000,
-  zIndex: 9
-};
+    this.autocomplete = null
+
+    this.onLoad = this.onLoad.bind(this)
+    this.onPlaceChanged = this.onPlaceChanged.bind(this)
+  }
+
+  onLoad (autocomplete) {
+    console.log('autocomplete: ', autocomplete)
+
+    this.autocomplete = autocomplete
+  }
+
+  onPlaceChanged () {
+    if (this.autocomplete !== null) {
+      console.log(this.autocomplete.getPlace())
+    } else {
+      console.log('Autocomplete is not loaded yet!')
+    }
+  }
+
 
  
-function ShowMap() {
-  const [map, setMap] = React.useState(null)
- 
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
- 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
- 
-  return (
-    <LoadScript
+  render(){
+    const containerStyle = {
+      width: '50vw',
+      height: '50vh'
+    };
+
+    const path = [ //for polyline
+      this.props.origin,
+      this.props.destination
+    ];
+
+    const options = { //for the polyline
+      strokeColor: '#404040',
+      strokeOpacity: 0.8,
+      strokeWeight: 1,
+      fillColor: '#404040',
+      fillOpacity: 0.1,
+      clickable: false,
+      draggable: true,
+      editable: true,
+      visible: true,
+      radius: 30000,
+      zIndex: 9
+    };
+
+    
+
+
+    return (
+      <LoadScript
       googleMapsApiKey={key}
-    >
+      libraries={["places"]}
+      >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
+        center={this.props.origin}
+        zoom={8}
+        // onLoad={onLoad}
+        // onUnmount={onUnmount}
+        >
+        <Marker position={this.props.origin}/>
+        <Marker position={this.props.destination}/>
         <Polyline path={path} options={options}/>
-        <Marker position={{ lat: 48.00, lng: -122.00}} />
-        <Marker position={{ lat: 48.00, lng: -110.00}} />
-     
       </GoogleMap>
     </LoadScript>
   )
 }
+}
  
 export default React.memo(ShowMap)
+
+  // const [map, setMap] = React.useState(null)
+ 
+  // const onLoad = React.useCallback(function callback(map) {
+  //   const bounds = new window.google.maps.LatLngBounds();
+  //   map.fitBounds(bounds);
+  //   setMap(map)
+  // }, [])
+ 
+  // const onUnmount = React.useCallback(function callback(map) {
+  //   setMap(null)
+  // }, [])
