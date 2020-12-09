@@ -14,7 +14,7 @@ class SideBar extends React.Component {
                 <label></label>
                 <input></input>
                 <input></input> 
-                <div>Mode:</div>     
+                <div className="mode-text">Mode:</div>     
                 <div className="walk-bike-button-options">
                 <img className="bicycle-image" src={walking} alt=""/>
                 <img className="bicycle-image" src={bicycle} alt=""/>
