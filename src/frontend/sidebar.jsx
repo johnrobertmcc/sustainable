@@ -161,7 +161,6 @@ class SideBar extends React.Component {
               destination: [this.state.destination],
               travelMode: [this.state.travelMode],
             }, (result, status) => {
-              debugger
               if (status === 'OK') {
                 this.setState({
                   directions: result,
