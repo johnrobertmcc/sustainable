@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from './map/map';
-import TopNavContainer from '../frontend/top-nav-container'
+import TopNavContainer from '../frontend/top-nav-container';
+import ResultsModal from "./results-modal";
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
 import car from "../stylesheets/car.png";
@@ -21,7 +22,8 @@ class SideBar extends React.Component {
       travelMode: 'WALKING',
       origin: {},
       destination: {},
-      searched: false
+      searched: false,
+      isOpen: false
     }
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
@@ -34,7 +36,17 @@ class SideBar extends React.Component {
     this.handleWalkModeClick = this.handleWalkModeClick.bind(this);
     this.handleBikeModeClick = this.handleBikeModeClick.bind(this);
     this.handleTransitModeClick = this.handleTransitModeClick.bind(this);
+    // Modal Bind 
+    this.toggleModal = this.toggleModal.bind(this);
+
   }
+
+   toggleModal() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
   handleCarModeClick() {
     let carTab = document.getElementsByClassName("car-image")
     for(let i = 0; i < carTab.length; i++){
@@ -227,6 +239,7 @@ class SideBar extends React.Component {
               </div>
               </div>
           </div>
+         <div className="subheader">mode of transport</div>
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
                     <input
@@ -281,17 +294,25 @@ class SideBar extends React.Component {
               </label>
               </div>
           </div>
-          <button type='button' onClick={this.onClick} className="Button">{this.state.travelMode}
-          </button>
+          <div className="results-modal-container" onClick={this.toggleModal}> 
+            <button type='button' onClick={this.onClick} className="Button">
+                {this.state.travelMode}
+            </button>
+            {/* <ResultsModal
+            travelMode={this.state.travelMode}
+            toggleModal={this.toggleModal}
+            show={this.state.isOpen}
+            /> */}
+          </div>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
          <div className="subheader">
-             <a href="">
+             <a href="https://drewshroyer.github.io/" target="_blank">
              Drew Shroyer
              </a>
              </div>
          <div className="subheader">
-             <a href="">JR McCann</a></div>
+             <a href="https://drewshroyer.github.io/" target="_blank">JR McCann</a></div>
          </div>
           </div>
         </div>
