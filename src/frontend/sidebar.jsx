@@ -257,6 +257,7 @@ class SideBar extends React.Component {
               </div>
               </div>
           </div>
+         <div className="subheader">mode of transport</div>
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
                     <input
@@ -316,12 +317,12 @@ class SideBar extends React.Component {
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
          <div className="subheader">
-             <a href="">
+             <a href="https://drewshroyer.github.io/" target="_blank">
              Drew Shroyer
              </a>
              </div>
          <div className="subheader">
-             <a href="">JR McCann</a></div>
+             <a href="https://drewshroyer.github.io/" target="_blank">JR McCann</a></div>
          </div>
           </div>
         </div>
