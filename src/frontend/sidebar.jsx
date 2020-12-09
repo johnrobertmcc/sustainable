@@ -2,6 +2,10 @@ import React from 'react';
 import Map from './map/map';
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
+import car from "../stylesheets/car.png";
+import transit from "../stylesheets/transit.png";
+
+
 class SideBar extends React.Component {
   constructor (props) {
     super(props)
@@ -124,46 +128,50 @@ class SideBar extends React.Component {
           
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
-              <input
-                  id='DRIVING'
-                  className='custom-control-input'
-                  name='travelMode'
-                  type='radio'
-                  checked={this.state.travelMode === 'DRIVING'}
-                  onChange={this.checkDriving}
-              />
-              <label className='custom-control-label' htmlFor='DRIVING'>Driving</label>
+                    <input
+                        id='DRIVING'
+                        className='custom-control-input'
+                        name='travelMode'
+                        type='hidden'
+                        checked={this.state.travelMode === 'DRIVING'}
+                        onChange={this.checkDriving}
+                    />
+                    <label className='custom-control-label' htmlFor='DRIVING'>
+                         <img className="bicycle-image" src={car} alt=""/>
+                    </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
-              <input
-                  id='BICYCLING'
-                  className='custom-control-input'
-                  name='travelMode'
-                  type='radio'
-                  checked={this.state.travelMode === 'BICYCLING'}
-                  onChange={this.checkBicycling}
-              />
-              <label className='custom-control-label' htmlFor='BICYCLING'>
-                  <img className="bicycle-image" src={bicycle} alt=""/>
-              </label>
+                    <input
+                        id='BICYCLING'
+                        className='custom-control-input'
+                        name='travelMode'
+                        type='hidden'
+                        checked={this.state.travelMode === 'BICYCLING'}
+                        onChange={this.checkBicycling}
+                    />
+                    <label className='custom-control-label' htmlFor='BICYCLING'>
+                        <img className="bicycle-image" src={bicycle} alt=""/>
+                    </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
               <input
                   id='TRANSIT'
                   className='custom-control-input'
                   name='travelMode'
-                  type='radio'
+                  type='hidden'
                   checked={this.state.travelMode === 'TRANSIT'}
                   onChange={this.checkTransit}
               />
-              <label className='custom-control-label' htmlFor='TRANSIT'>Transit</label>
+              <label className='custom-control-label' htmlFor='TRANSIT'>
+                    <img className="transit-image" src={transit} alt=""/>
+              </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
               <input
                   id='WALKING'
                   className='custom-control-input'
                   name='travelMode'
-                  type='radio'
+                  type='hidden'
                   checked={this.state.travelMode === 'WALKING'}
                   onChange={this.checkWalking}
               />
