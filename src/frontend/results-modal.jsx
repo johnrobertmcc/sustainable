@@ -10,8 +10,8 @@ class ResultsModal extends React.Component {
             isOpen: true,
             car: "",
             transit: "",
-            bike: "",
-            walk: "",
+            bike: 0,
+            walk: 0,
         }
     
         this.handleClickforCancel = this.handleClickforCancel.bind(this);
