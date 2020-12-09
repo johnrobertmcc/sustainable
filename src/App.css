@@ -152,6 +152,21 @@ a {
   transition: all 0.15s ease-in-out;
   border: 1px solid lightgrey;
 }
+.walk-image {
+  height: 4vh;
+  width: 4vh;
+  padding: 2vh 4vh 2vh 4vh;
+  background-color: transparent;
+  border-width: 2px;
+  border-color: black;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid lightgrey;
+}
+
+.walk-image:hover {
+background-color: #D2F0D2;
+}
+
 .car-image:hover {
   background-color: #D2F0D2;
 }
@@ -164,6 +179,7 @@ a {
 }
 
 .Button {
+    text-transform: lowercase;
     border-width: 2px;
     width: 18vw;
     font-weight: normal;
