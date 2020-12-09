@@ -13,22 +13,28 @@ Geocode.setApiKey(key)
 class SideBar extends React.Component {
   constructor (props) {
     super(props)
+    
     this.state = {
       response: null,
       travelMode: 'WALKING',
-      origin: {lat: 40.7, lng:-73.99},
+      origin: {lat: 40.7309, lng:-73.9973},
       destination: {}
     }
+    
     //!!! still unsure why this is necessary !!!!
     this.directionsCallback = this.directionsCallback.bind(this)
+    
     //these are for the travelMode
     this.checkDriving = this.checkDriving.bind(this)
     this.checkBicycling = this.checkBicycling.bind(this)
     this.checkTransit = this.checkTransit.bind(this)
     this.checkWalking = this.checkWalking.bind(this)
+
     //these are the origin/destination to be passed to map.jsx
- this.getOrigin = this.getOrigin.bind(this)
-    this.getDestination = this.getDestination.bind(this)    //duh
+    this.getOrigin = this.getOrigin.bind(this)
+    this.getDestination = this.getDestination.bind(this)    
+    
+    //duh
     this.onClick = this.onClick.bind(this)
     this.onMapClick = this.onMapClick.bind(this)
   }
