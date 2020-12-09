@@ -5,19 +5,16 @@ import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
 import car from "../stylesheets/car.png";
 import transit from "../stylesheets/transit.png";
-import { 
-  LoadScript, 
+import {
+  LoadScript,
   Autocomplete
   } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import key from './config/key';
-
 Geocode.setApiKey(key)
-
 class SideBar extends React.Component {
   constructor (props) {
     super(props)
-    
     this.state = {
       response: null,
       travelMode: 'WALK',
@@ -25,31 +22,25 @@ class SideBar extends React.Component {
       destination: {},
       searched: false
     }
-    
     //!!! still unsure why this is necessary !!!!
     this.directionsCallback = this.directionsCallback.bind(this)
-    
     //these are for the travelMode
     this.checkDriving = this.checkDriving.bind(this)
     this.checkBicycling = this.checkBicycling.bind(this)
     this.checkTransit = this.checkTransit.bind(this)
     this.checkWalking = this.checkWalking.bind(this)
-
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
-    this.getDestination = this.getDestination.bind(this)    
-    
+    this.getDestination = this.getDestination.bind(this)
     //duh
     this.onClick = this.onClick.bind(this)
     this.onMapClick = this.onMapClick.bind(this)
-
     // CSS javascript functions
     this.handleCarModeClick = this.handleCarModeClick.bind(this);
     this.handleWalkModeClick = this.handleWalkModeClick.bind(this);
     this.handleBikeModeClick = this.handleBikeModeClick.bind(this);
     this.handleTransitModeClick = this.handleTransitModeClick.bind(this);
   }
-
   handleCarModeClick() {
     let carTab = document.getElementsByClassName("car-image")
     for(let i = 0; i < carTab.length; i++){
@@ -73,7 +64,6 @@ class SideBar extends React.Component {
         })
       )
   }
-
   handleWalkModeClick() {
     let walkTab = document.getElementsByClassName("walk-image")
     for(let i = 0; i < walkTab.length; i++){
@@ -97,7 +87,6 @@ class SideBar extends React.Component {
         })
       )
   }
-
   handleBikeModeClick() {
     let bikeTab = document.getElementsByClassName("bicycle-image")
     for(let i = 0; i < bikeTab.length; i++){
@@ -121,7 +110,6 @@ class SideBar extends React.Component {
         })
       )
   }
-
   handleTransitModeClick() {
      let transitTab = document.getElementsByClassName("transit-image")
     for(let i = 0; i < transitTab.length; i++){
@@ -145,7 +133,6 @@ class SideBar extends React.Component {
         })
       )
   }
-
   directionsCallback (response) {
     console.log(response)
     if (response !== null) {
@@ -192,17 +179,13 @@ class SideBar extends React.Component {
         })
       )
   }
-
   getOrigin (ref) {
     this.origin = ref
   }
-
   getDestination (ref) {
     this.destination = ref
   }
-
   onClick () {
-    
     if (this.origin.value !== '' && this.destination.value !== '') {
       Geocode.fromAddress(this.origin.value).then( res => {
         let {lat, lng} = res.results[0].geometry.location;
@@ -223,18 +206,13 @@ class SideBar extends React.Component {
     }
     this.setState({searched: true});
   }
-
   onMapClick (...args) {
     console.log('onClick args: ', args)
   }
-
   render() {
-
       let {origin, destination, searched} = this.state;
-
       return(
       <div className='sidebar-container'>
-            
           <div className="left-sidebar">
            <TopNavContainer/>
            <div className="call-to-action">Check your Carbon Footprint</div>
@@ -275,7 +253,7 @@ class SideBar extends React.Component {
                   ref={this.getDestination}
                   />
               </Autocomplete>
-              </LoadScript>   
+              </LoadScript>
               </div>
               </div>
           </div>
