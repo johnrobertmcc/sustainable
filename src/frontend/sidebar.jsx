@@ -1,5 +1,6 @@
 import React from 'react';
 import Map from './map/map';
+import TopNavContainer from '../frontend/top-nav-container'
 import bicycle from "../stylesheets/bicycle.png";
 import walking from "../stylesheets/walking.png";
 import car from "../stylesheets/car.png";
@@ -108,24 +109,24 @@ class SideBar extends React.Component {
       return(
       <div className='sidebar-container'>
           <div className="left-sidebar">
+           <TopNavContainer/>
+           <div className="call-to-action">Check your Carbon Footprint</div>
+           <div className="subheader">directions</div>
           <div className='map-settings'>
           <div className='row'>
               <div className='col-md-6 col-lg-4'>
-              <div className='form-group'>
-                  <label htmlFor='ORIGIN'>Origin</label>
-                  <br />
-                  <input id='ORIGIN' className='form-control' type='text' ref={this.getOrigin} />
-              </div>
+                <div className='form-group'>                    <br />
+                    <input id='ORIGIN' placeholder="ORIGIN" className='form-control' type='text' ref={this.getOrigin} />
+                </div>
               </div>
               <div className='col-md-6 col-lg-4'>
               <div className='form-group'>
-                  <label htmlFor='DESTINATION'>Destination</label>
                   <br />
-                  <input id='DESTINATION' className='form-control' type='text' ref={this.getDestination} />
+                  <input id='DESTINATION' placeholder="DESTINATION" className='form-control' type='text' ref={this.getDestination} />
               </div>
               </div>
           </div>
-          
+          <div className="subheader">mode of transport</div>
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
                     <input
@@ -137,7 +138,7 @@ class SideBar extends React.Component {
                         onChange={this.checkDriving}
                     />
                     <label className='custom-control-label' htmlFor='DRIVING'>
-                         <img className="bicycle-image" src={car} alt=""/>
+                         <img className="car-image" src={car} alt=""/>
                     </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
@@ -176,7 +177,7 @@ class SideBar extends React.Component {
                   onChange={this.checkWalking}
               />
               <label className='custom-control-label' htmlFor='WALKING'>
-                  <img className="bicycle-image" src={walking} alt=""/>
+                  <img className="car-image"  src={walking} alt=""/>
               </label>
               </div>
           </div>
@@ -186,9 +187,6 @@ class SideBar extends React.Component {
         </div>
           <div className='map-container'>
               <Map test={true} origin={origin} destination={destination}/>
-          </div>
-          <div className='right-sidebar'>
-              this is the right sidebar
           </div>
     </div>
       )
