@@ -23,7 +23,8 @@ class SideBar extends React.Component {
       origin: {},
       destination: {},
       searched: false,
-      isOpen: false
+      isOpen: false,
+      directions: null
     }
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
@@ -147,8 +148,8 @@ class SideBar extends React.Component {
     this.destination = ref
   }
   onClick () {
-
-    let dService = new window.google.maps.DirectionsService();
+    let google = window.google;
+    let dService = new google.maps.DirectionsService();
 
     if (this.origin.value !== '' && this.destination.value !== '') {
       Geocode.fromAddress(this.origin.value).then( res => {
@@ -168,12 +169,15 @@ class SideBar extends React.Component {
           }
         ).then(() => {
           debugger
+          let {travelMode, origin, destination} = this.state;
+
             dService.route({
-              origin: [this.state.origin],
-              destination: [this.state.destination],
-              travelMode: [this.state.travelMode],
+              origin: new google.maps.LatLng([origin.lat], [origin.lng]),
+              destination: new google.maps.LatLng([destination.lat],[destination.lng]),
+              travelMode: google.maps.TravelMode.[travelMode],
             }, (result, status) => {
-              if (status === 'OK') {
+              debugger
+              if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,
                 });
@@ -192,7 +196,7 @@ class SideBar extends React.Component {
     console.log('onClick args: ', args)
   }
   render() {
-      let {origin, destination, searched, travelMode} = this.state;
+      let {origin, destination, directions, searched, travelMode} = this.state;
       return(
       <div className='sidebar-container'>
           <div className="left-sidebar">
@@ -317,7 +321,7 @@ class SideBar extends React.Component {
           </div>
         </div>
           <div className='map-container'>
-                <Map origin={origin} destination={destination} travelMode={travelMode} searched={searched}/>
+                <Map origin={origin} directions={directions} destination={destination} travelMode={travelMode} searched={searched}/>
           </div>
     </div>
       )
