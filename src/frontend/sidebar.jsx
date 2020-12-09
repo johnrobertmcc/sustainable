@@ -89,6 +89,7 @@ class SideBar extends React.Component {
 
   onClick () {
     if (this.origin.value !== '' && this.destination.value !== '') {
+      debugger
       this.setState(
         () => ({
           origin: this.origin.value,
@@ -105,6 +106,10 @@ class SideBar extends React.Component {
 
 
     render() {
+      const center = { //take these from directions origin
+        lat: 48,
+        lng: -120
+      };
         return(
         
         <div className='sidebar-container'>
@@ -188,7 +193,7 @@ class SideBar extends React.Component {
             </div>
 
             <div className='map-container'>
-                <Map />
+                <Map test={true} center={center} />
             </div>
 
             <div className='right-sidebar'>
