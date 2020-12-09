@@ -179,6 +179,7 @@ background-color: #D2F0D2;
 }
 
 .Button {
+    text-transform: lowercase;
     border-width: 2px;
     width: 18vw;
     font-weight: normal;

@@ -234,77 +234,51 @@ class SideBar extends React.Component {
 
       return(
       <div className='sidebar-container'>
-        <LoadScript
-        googleMapsApiKey={key}
-        libraries={["places"]}
-        >
-          <Autocomplete
-              onLoad={this.onLoad}
-              onPlaceChanged={this.onPlaceChanged}
-              >
-              <input
-                type="text"
-                placeholder="enter an origin"
-                ref={this.getOrigin}
-                style={{
-                  boxSizing: `border-box`,
-                  border: `1px solid transparent`,
-                  width: `240px`,
-                  height: `25px`,
-                  padding: `0 12px`,
-                  borderRadius: `3px`,
-                  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                  fontSize: `14px`,
-                  outline: `none`,
-                  textOverflow: `ellipses`,
-                  position: "absolute",
-                }}
-                />
-            </Autocomplete>
-            <Autocomplete
-                onLoad={this.onLoad}
-                onPlaceChanged={this.onPlaceChanged}
-                >
-                <input
-                  type="text"
-                  placeholder="enter a destination"
-                  ref={this.getDestination}
-                  style={{
-                    boxSizing: `border-box`,
-                    border: `1px solid transparent`,
-                    width: `240px`,
-                    height: `25px`,
-                    padding: `0 12px`,
-                    borderRadius: `3px`,
-                    boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                    fontSize: `14px`,
-                    outline: `none`,
-                    textOverflow: `ellipses`,
-                    position: "absolute",
-                    marginTop:'75px'
-                  }}
-                  />
-              </Autocomplete>
-          </LoadScript>
+            
           <div className="left-sidebar">
            <TopNavContainer/>
            <div className="call-to-action">Check your Carbon Footprint</div>
            <div className="subheader">directions</div>
           <div className='map-settings'>
-          <div className='row'>
               <div className='col-md-6 col-lg-4'>
-                <div className='form-group'>                    <br />
-                    <input id='ORIGIN' placeholder="ORIGIN" className='form-control' type='text' ref={this.getOrigin} />
-                </div>
+                <div className='form-group'>
+                    <div className='row'>
+                        <LoadScript
+                        googleMapsApiKey={key}
+                        libraries={["places"]}>
+                        <Autocomplete
+                            onLoad={this.onLoad}
+                            onPlaceChanged={this.onPlaceChanged}
+                            >
+                            <input
+                                id='ORIGIN' placeholder="ORIGIN" className='form-control' type='text'
+                                placeholder="enter an origin"
+                                ref={this.getOrigin}
+                                className='form-control'
+                                />
+                            </Autocomplete>
+                            </LoadScript>
+                    </div>
               </div>
               <div className='col-md-6 col-lg-4'>
               <div className='form-group'>
-                  <br />
-                  <input id='DESTINATION' placeholder="DESTINATION" className='form-control' type='text' ref={this.getDestination} />
+                 <LoadScript
+                    googleMapsApiKey={key}
+                        libraries={["places"]}>
+                <Autocomplete
+                onLoad={this.onLoad}
+                onPlaceChanged={this.onPlaceChanged}
+                >
+                <input
+                  id='DESTINATION' placeholder="DESTINATION" className='form-control' type='text'
+                  placeholder="enter a destination"
+                  ref={this.getDestination}
+                  />
+              </Autocomplete>
+              </LoadScript>   
               </div>
               </div>
           </div>
-
           <div className='transit-options'>
               <div className='form-group custom-control custom-radio mr-4'>
                     <input
@@ -314,10 +288,9 @@ class SideBar extends React.Component {
                         type='hidden'
                         checked={this.state.travelMode === 'DRIVE'}
                         onChange={this.checkDriving}
-                        onClick={this.handleCarModeClick}
                     />
                     <label className='custom-control-label' htmlFor='DRIVING'>
-                         <img className="car-image" src={car} alt=""/>
+                         <img className="car-image" onClick={this.handleCarModeClick} src={car} alt=""/>
                     </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
@@ -328,10 +301,9 @@ class SideBar extends React.Component {
                         type='hidden'
                         checked={this.state.travelMode === 'BIKE'}
                         onChange={this.checkBicycling}
-                        onClick={this.handleBikeModeClick}
                     />
                     <label className='custom-control-label' htmlFor='BICYCLING'>
-                        <img className="bicycle-image" src={bicycle} alt=""/>
+                        <img className="bicycle-image" onClick={this.handleBikeModeClick} src={bicycle} alt=""/>
                     </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
@@ -342,10 +314,9 @@ class SideBar extends React.Component {
                   type='hidden'
                   checked={this.state.travelMode === 'TRANSIT'}
                   onChange={this.checkTransit}
-                  onClick={this.handleTransitModeClick}
               />
               <label className='custom-control-label' htmlFor='TRANSIT'>
-                    <img className="transit-image" src={transit} alt=""/>
+                    <img className="transit-image" onClick={this.handleTransitModeClick} src={transit} alt=""/>
               </label>
               </div>
               <div className='form-group custom-control custom-radio mr-4'>
@@ -356,14 +327,13 @@ class SideBar extends React.Component {
                   type='hidden'
                   checked={this.state.travelMode === 'WALK'}
                   onChange={this.checkWalking}
-                  onClick={this.handleWalkModeClick}
               />
               <label className='custom-control-label' htmlFor='WALKING'>
-                  <img className="walk-image"  src={walking} alt=""/>
+                  <img className="walk-image" onClick={this.handleWalkModeClick} src={walking} alt=""/>
               </label>
               </div>
           </div>
-          <button type='button' onClick={this.onClick} className="Button">{this.state.travelMode}=>
+          <button type='button' onClick={this.onClick} className="Button">{this.state.travelMode}
           </button>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
