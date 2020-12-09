@@ -51,7 +51,7 @@ class SideBar extends React.Component {
   handleCarModeClick() {
     let carTab = document.getElementsByClassName("car-image")
     for(let i = 0; i < carTab.length; i++){
-        carTab[i].style.backgroundColor = '#D2F0D2'
+        carTab[i].style.backgroundColor = '#FFF201'
     }
     let bikeTab = document.getElementsByClassName("bicycle-image")
     for(let i = 0; i < bikeTab.length; i++){
@@ -74,7 +74,7 @@ class SideBar extends React.Component {
   handleWalkModeClick() {
     let walkTab = document.getElementsByClassName("walk-image")
     for(let i = 0; i < walkTab.length; i++){
-        walkTab[i].style.backgroundColor = '#D2F0D2';
+        walkTab[i].style.backgroundColor = '#FFF201';
     }
     let carTab = document.getElementsByClassName("car-image")
     for(let i = 0; i < carTab.length; i++){
@@ -97,7 +97,7 @@ class SideBar extends React.Component {
   handleBikeModeClick() {
     let bikeTab = document.getElementsByClassName("bicycle-image")
     for(let i = 0; i < bikeTab.length; i++){
-        bikeTab[i].style.backgroundColor = '#D2F0D2';
+        bikeTab[i].style.backgroundColor = '#FFF201';
     }
      let transitTab = document.getElementsByClassName("transit-image")
     for(let i = 0; i < transitTab.length; i++){
@@ -120,7 +120,7 @@ class SideBar extends React.Component {
   handleTransitModeClick() {
      let transitTab = document.getElementsByClassName("transit-image")
     for(let i = 0; i < transitTab.length; i++){
-        transitTab[i].style.background = '#D2F0D2';
+        transitTab[i].style.background = '#FFF201';
     }
     let walkTab = document.getElementsByClassName("walk-image")
     for(let i = 0; i < walkTab.length; i++){
