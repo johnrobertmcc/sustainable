@@ -131,6 +131,12 @@ a {
     color: #000000;
 }
 
+/* .transit-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+} */
+
 .Button:hover {
     color: #fff200;
     background: #000000;
