@@ -17,8 +17,9 @@ class SideBar extends React.Component {
     this.state = {
       response: null,
       travelMode: 'WALKING',
-      origin: {lat: 40.7309, lng:-73.9973},
-      destination: {}
+      origin: {},
+      destination: {},
+      searched: false
     }
     
     //!!! still unsure why this is necessary !!!!
@@ -85,7 +86,6 @@ class SideBar extends React.Component {
       )
   }
 
-
   getOrigin (ref) {
     this.origin = ref
   }
@@ -98,40 +98,34 @@ class SideBar extends React.Component {
     
     if (this.origin.value !== '' && this.destination.value !== '') {
       Geocode.fromAddress(this.origin.value).then( res => {
-        const {lat, lng} = res.results[0].geometry.location;
-             this.setState( () => ({
-                  origin:{lat: lat, lng: lng}
-              }))
+        let {lat, lng} = res.results[0].geometry.location;
+        this.setState({ origin:{lat: lat, lng: lng} })
           },
           error => {
             console.error(error);
           }
         );
        Geocode.fromAddress(this.destination.value).then( res => {
-        const {lat, lng} = res.results[0].geometry.location;
-             this.setState( () => ({
-                  destination:{lat: lat, lng: lng}
-              }))
+          let {lat, lng} = res.results[0].geometry.location;
+          this.setState({ destination:{lat: lat, lng: lng} })
           },
           error => {
             console.error(error);
           }
         );
-      debugger
     }
+    this.setState({searched: true});
   }
+
   onMapClick (...args) {
     console.log('onClick args: ', args)
   }
+
   render() {
-      const origin = { //take these from directions origin
-        lat: this.state.origin.lat,
-        lng: this.state.origin.lng
-      };
-      const destination = {
-        lat: this.state.destination.lat,
-        lng: this.state.destination.lng
-      }
+
+      let {origin, destination, searched} = this.state;
+      debugger
+
       return(
       <div className='sidebar-container'>
         <LoadScript
@@ -158,7 +152,6 @@ class SideBar extends React.Component {
                   outline: `none`,
                   textOverflow: `ellipses`,
                   position: "absolute",
-                  // marginTop:'25px'
                 }}
                 />
             </Autocomplete>
@@ -245,7 +238,7 @@ class SideBar extends React.Component {
           </div>
         </div>
           <div className='map-container'>
-              <Map test={true} origin={origin} destination={destination}/>
+                <Map origin={origin} destination={destination} searched={searched}/>
           </div>
           <div className='right-sidebar'>
               this is the right sidebar
