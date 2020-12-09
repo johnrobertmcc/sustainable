@@ -36,10 +36,9 @@ a {
 
 .nav-bar-container {
     position: absolute;
-    top: 0;
+    top: 1%;
     width: 100%;
-    height: 80px;
-    background-color: #264DF9;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -47,6 +46,13 @@ a {
     position: fixed;
     z-index: 100;
 }
+
+/* .top-banner {
+  top: 0;
+  width: 100%;
+  height: 1%;
+  background-color: #fff200;
+} */
 
 .nav-bar-links {
     color: white;
@@ -62,6 +68,71 @@ a {
     text-transform: lowercase;
 }
 
+.sidebar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.left-sidebar {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.right-sidebar {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.mode-text {
+  font-size: 18px;
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin-bottom: -30px;
+}
+
+.bicycle-image {
+  height: 50px;
+  width: 50px;
+  background-color: #264DF9;
+  padding: 5px;
+  border-width: 2px;
+  border-color: black;
+  margin: 5px 0px -20px 10px;
+  border-radius: 5%; 
+  transition: all 0.15s ease-in-out;
+}
+.bicycle-image:hover {
+  background-color: white;
+}
+
+.Button {
+    border-width: 2px;
+    width: 12vw;
+    font-weight: normal;
+    letter-spacing: 0;
+    padding: 0.9em 1em 1em;
+    font-size: 28px;
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+    border-color: black;
+    font-family: "Mabry Pro", sans-serif !important;
+    border-radius: 50%;
+    line-height: 1em;
+    margin-bottom: 10px;
+    background: #fff200;
+    color: #000000;
+}
+
+.Button:hover {
+    color: #fff200;
+    background: #000000;
+}
 
 .nav-bar-title {
     letter-spacing: .5rem;
@@ -76,7 +147,6 @@ a {
     justify-content: center;
     cursor: pointer;
     text-decoration: underline;
-    /* text-transform: lowercase; */
 }
 
 .nav-bar-link:hover {
@@ -85,8 +155,8 @@ a {
 }
 
 #white-splash-logo {
-     width:130px;
-     height: auto;
+    width:130px;
+    height: auto;
 }
 
 .nav-bar-link {
