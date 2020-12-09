@@ -6,7 +6,6 @@ import walking from "../stylesheets/walking.png";
 
 class SideBar extends React.Component {
 
-
     render() {
         return(
         
