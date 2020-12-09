@@ -2,12 +2,14 @@
 
 .App {
   text-align: center;
-  background-color: #264DF9;
   font-family: Favorit;
 }
 
 .App-header {
-  background-color: #264DF9;
+  background-color: #DCE4CF;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,9 +27,9 @@
   src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.ttf") format("truetype");
   src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.svg#Favorit") format("svg"); }
 
-body {
+/* body {
   background-color: #264DF9;
-}
+} */
 
 a {
   color: inherit;
@@ -55,7 +57,7 @@ a {
 } */
 
 .nav-bar-links {
-    color: white;
+    color: #000000;
     padding: 10px;
     margin: 10px;
     font-weight: 900;
@@ -99,7 +101,7 @@ a {
 .bicycle-image {
   height: 50px;
   width: 50px;
-  background-color: #264DF9;
+  background-color: transparent;
   padding: 5px;
   border-width: 2px;
   border-color: black;
@@ -136,7 +138,7 @@ a {
 
 .nav-bar-title {
     letter-spacing: .5rem;
-    color: white;
+    color: #000000;
     padding: 10px;
     margin: 10px;
     font-weight: 900;
