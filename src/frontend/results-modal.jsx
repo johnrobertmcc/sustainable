@@ -17,7 +17,10 @@ class ResultsModal extends React.Component {
     }
 
     handleClickforCancel() {
-        this.props.toggleModal();
+        let modal = document.getElementsByClassName("modal-outer-container")
+        for(let i = 0; i < modal.length; i++){
+                     modal[i].style.display = 'none'
+                } 
     }
 
     calculateCarbon(distance) {
