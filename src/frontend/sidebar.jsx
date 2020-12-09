@@ -25,9 +25,6 @@ class SideBar extends React.Component {
       searched: false
     }
     
-    //!!! still unsure why this is necessary !!!!
-    this.directionsCallback = this.directionsCallback.bind(this)
-    
     //these are for the travelMode
     this.checkDriving = this.checkDriving.bind(this)
     this.checkBicycling = this.checkBicycling.bind(this)
@@ -40,22 +37,9 @@ class SideBar extends React.Component {
     
     //duh
     this.onClick = this.onClick.bind(this)
-    this.onMapClick = this.onMapClick.bind(this)
   }
-  directionsCallback (response) {
-    console.log(response)
-    if (response !== null) {
-      if (response.status === 'OK') {
-        this.setState(
-          () => ({
-            response
-          })
-        )
-      } else {
-        console.log('response: ', response)
-      }
-    }
-  }
+
+
   checkDriving ({ target: { checked } }) {
     checked &&
       this.setState(
@@ -89,6 +73,7 @@ class SideBar extends React.Component {
       )
   }
 
+
   getOrigin (ref) {
     this.origin = ref
   }
@@ -120,10 +105,6 @@ class SideBar extends React.Component {
     this.setState({searched: true});
   }
 
-  onMapClick (...args) {
-    console.log('onClick args: ', args)
-  }
-
   render() {
 
       let {origin, destination, searched} = this.state;
@@ -131,6 +112,7 @@ class SideBar extends React.Component {
 
       return(
       <div className='sidebar-container'>
+
         <LoadScript
         googleMapsApiKey={key}
         libraries={["places"]}
@@ -158,6 +140,7 @@ class SideBar extends React.Component {
                 }}
                 />
             </Autocomplete>
+
             <Autocomplete
                 onLoad={this.onLoad}
                 onPlaceChanged={this.onPlaceChanged}
@@ -183,6 +166,8 @@ class SideBar extends React.Component {
                   />
               </Autocomplete>
           </LoadScript>
+
+          
           <div className="left-sidebar">
            <TopNavContainer/>
            <div className="call-to-action">Check your Carbon Footprint</div>
