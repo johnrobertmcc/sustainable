@@ -20,10 +20,10 @@ class SideBar extends React.Component {
     this.state = {
       response: null,
       travelMode: 'WALKING',
+      buttonMode: 'WALK',
       origin: {},
       destination: {},
       searched: false,
-      isOpen: false,
       directions: null
     }
     //these are the origin/destination to be passed to map.jsx
@@ -43,15 +43,22 @@ class SideBar extends React.Component {
   }
 
    toggleModal() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  }
+       let modal = document.getElementsByClassName("modal-outer-container")
+       if(modal[0].style.display= "none") {
+                for(let i = 0; i < modal.length; i++){
+                    modal[i].style.display = 'block'
+                } 
+         } else {
+                 for(let i = 0; i < modal.length; i++){
+                     modal[i].style.display = 'none'
+                } 
+        }
+   }
 
   handleCarModeClick() {
     let carTab = document.getElementsByClassName("car-image")
     for(let i = 0; i < carTab.length; i++){
-        carTab[i].style.backgroundColor = '#D2F0D2'
+        carTab[i].style.backgroundColor = '#FFF201'
     }
     let bikeTab = document.getElementsByClassName("bicycle-image")
     for(let i = 0; i < bikeTab.length; i++){
@@ -67,14 +74,14 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'DRIVING'
+          buttonMode: 'DRIVE'
         })
       )
   }
   handleWalkModeClick() {
     let walkTab = document.getElementsByClassName("walk-image")
     for(let i = 0; i < walkTab.length; i++){
-        walkTab[i].style.backgroundColor = '#D2F0D2';
+        walkTab[i].style.backgroundColor = '#FFF201';
     }
     let carTab = document.getElementsByClassName("car-image")
     for(let i = 0; i < carTab.length; i++){
@@ -90,14 +97,14 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'WALKING'
+          buttonMode: 'WALK'
         })
       )
   }
   handleBikeModeClick() {
     let bikeTab = document.getElementsByClassName("bicycle-image")
     for(let i = 0; i < bikeTab.length; i++){
-        bikeTab[i].style.backgroundColor = '#D2F0D2';
+        bikeTab[i].style.backgroundColor = '#FFF201';
     }
      let transitTab = document.getElementsByClassName("transit-image")
     for(let i = 0; i < transitTab.length; i++){
@@ -113,14 +120,14 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
-          travelMode: 'BICYCLING'
+          buttonMode: 'BIKE'
         })
       )
   }
   handleTransitModeClick() {
      let transitTab = document.getElementsByClassName("transit-image")
     for(let i = 0; i < transitTab.length; i++){
-        transitTab[i].style.background = '#D2F0D2';
+        transitTab[i].style.background = '#FFF201';
     }
     let walkTab = document.getElementsByClassName("walk-image")
     for(let i = 0; i < walkTab.length; i++){
@@ -136,7 +143,7 @@ class SideBar extends React.Component {
     }
      this.setState(
         () => ({
-          travelMode: 'TRANSIT'
+          buttonMode: 'TRANSIT'
         })
       )
   }
@@ -300,9 +307,11 @@ class SideBar extends React.Component {
               </label>
               </div>
           </div>
-          <div className="results-modal-container"> 
+
+          <div className="results-modal-container" > 
             <button type='button' onClick={this.onClick} className="Button">
-                {this.state.travelMode}
+                {this.state.buttonMode}
+
             </button>
             <ResultsModal
             travelMode={this.state.travelMode}
