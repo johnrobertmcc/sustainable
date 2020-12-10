@@ -24,14 +24,18 @@ class SideBar extends React.Component {
       origin: {},
       destination: {},
       searched: false,
-      directions: null
+      directions: null,
+      carNum: "",
+      transitNum: "",
+      bikeNum: 0,
+      walkNum: 0,
+      test:false
     }
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
     this.getDestination = this.getDestination.bind(this)
     //duh
     this.onClick = this.onClick.bind(this)
-    this.onMapClick = this.onMapClick.bind(this)
     // CSS javascript functions
     this.handleCarModeClick = this.handleCarModeClick.bind(this);
     this.handleWalkModeClick = this.handleWalkModeClick.bind(this);
@@ -43,7 +47,7 @@ class SideBar extends React.Component {
   }
 
    toggleModal() {
-       let modal = document.getElementsByClassName("modal-outer-container")
+       let modal = document.getElementsByClassName("modal-outer-container");
        if(modal[0].style.display= "none") {
                 for(let i = 0; i < modal.length; i++){
                     modal[i].style.display = 'block'
@@ -192,16 +196,57 @@ class SideBar extends React.Component {
             });
 
         }).then(() => {
-            this.setState({searched: true})
-            this.toggleModal();
-          }
+          if(this.state.directions !== null){
+            this.calculateCarbon(this.state.directions.routes[0].legs[0].distance.text)
+          };
+          this.setState({searched: true})
+          this.toggleModal();
+
+        }
         );
     }
 
   }
-  onMapClick (...args) {
-    console.log('onClick args: ', args)
-  }
+
+
+    sendModal(){
+      let {carNum, transitNum, bikeNum, walkNum} = this.state;
+      debugger
+    
+      return(
+          <ResultsModal
+            travelMode={this.state.travelMode}
+            toggleModal={this.toggleModal}
+            show={this.state.isOpen}
+            distance={this.state.directions}
+            carNum={carNum}
+            transitNum={transitNum}
+            bikeNum={bikeNum}
+            walkNum={walkNum}
+          />
+      )
+
+    }
+
+
+    calculateCarbon(distance) {
+        let miles = parseFloat(distance)
+        let carNum = 404 * 2 * miles
+        let transitNum = 204 * 2 * miles
+        let bikeNum = 0 
+        let walkNum = 0 
+        debugger
+
+        this.setState({ 
+            carNum: carNum,
+            transitNum: transitNum,
+            bikeNum: bikeNum,
+            walkNum: walkNum,
+            test:true
+        })
+
+    }
+
   render() {
       let {origin, destination, directions, searched, travelMode} = this.state;
       return(
@@ -311,12 +356,9 @@ class SideBar extends React.Component {
                 {this.state.buttonMode}
 
             </button>
-            <ResultsModal
-            travelMode={this.state.travelMode}
-            toggleModal={this.toggleModal}
-            show={this.state.isOpen}
-            distance={this.state.distance}
-            />
+            {this.state.test ? this.sendModal() : null}
+
+          
           </div>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
