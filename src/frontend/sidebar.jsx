@@ -186,7 +186,10 @@ class SideBar extends React.Component {
               if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,
+                  searched: true
                 });
+                this.calculateCarbon(this.state.directions.routes[0].legs[0].distance.text)
+                this.toggleModal()
               } else {
                 console.error(`error fetching directions ${result}`);
               }
@@ -194,9 +197,8 @@ class SideBar extends React.Component {
 
         }).then(() => {
           if(this.state.directions !== null){
-            this.calculateCarbon(this.state.directions.routes[0].legs[0].distance.text)
           };
-          this.setState({searched: true})
+          this.setState({})
           this.toggleModal();
 
         }
@@ -207,8 +209,10 @@ class SideBar extends React.Component {
 
 
     sendModal(){
-      let {carNum, transitNum, bikeNum, walkNum} = this.state;
+      let {carNum, searched, transitNum, bikeNum, walkNum} = this.state;
+      debugger
    
+      if(searched){
       return(
           <ResultsModal
             travelMode={this.state.travelMode}
@@ -220,7 +224,7 @@ class SideBar extends React.Component {
             bikeNum={bikeNum}
             walkNum={walkNum}
           />
-      )
+      )}
 
     }
 
