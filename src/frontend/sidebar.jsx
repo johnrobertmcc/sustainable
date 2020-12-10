@@ -27,8 +27,7 @@ class SideBar extends React.Component {
       carNum: "",
       transitNum: "",
       bikeNum: 0,
-      walkNum: 0,
-      test:false
+      walkNum: 0
     }
     //these are the origin/destination to be passed to map.jsx
     this.getOrigin = this.getOrigin.bind(this)
@@ -48,7 +47,7 @@ class SideBar extends React.Component {
    toggleModal() {
        let modal = document.getElementsByClassName("modal-outer-container");
             for(let i = 0; i < modal.length; i++){
-                    modal[i].style.display = 'block'
+                modal[i].style.display = 'block'
             } 
    }
 
@@ -236,8 +235,7 @@ class SideBar extends React.Component {
             carNum: carNum,
             transitNum: transitNum,
             bikeNum: bikeNum,
-            walkNum: walkNum,
-            test:true
+            walkNum: walkNum
         })
         // Greenhouse Gas Data
         // https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle
@@ -353,7 +351,7 @@ class SideBar extends React.Component {
                 {this.state.buttonMode}
 
             </button>
-            {this.state.test ? this.sendModal() : null}
+            {this.sendModal()}
           
           </div>
         <div className="bio-container">
