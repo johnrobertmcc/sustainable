@@ -2,11 +2,12 @@
 
 .App {
   text-align: center;
-  font-family: Favorit;
+  font-family: 'Favorit';
   margin: 5vh 4.5vw 5vh 4.5vw;
 }
 
 .App-header {
+  font-family: 'Favorit';
   background-color: #ffffff;
   background-position: center;
   background-size: cover;
