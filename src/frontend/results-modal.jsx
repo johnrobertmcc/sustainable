@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react";
 import { hydrate } from 'react-dom';
-
+import Carousel from './carousel/carousel'
+;
 class ResultsModal extends React.Component {
 
     constructor(props) {
@@ -146,6 +147,7 @@ class ResultsModal extends React.Component {
                     <hr></hr>
 
                 {this.funFacts()}
+                <Carousel />
 
               </div>
           </div>
