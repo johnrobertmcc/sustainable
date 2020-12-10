@@ -94,7 +94,6 @@ class ShowMap extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.map = new google.maps.Map(
       this.mapdiv,
       {zoom:14, center: {

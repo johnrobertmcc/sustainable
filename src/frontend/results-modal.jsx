@@ -6,12 +6,6 @@ class ResultsModal extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            car: "",
-            transit: "",
-            bike: 0,
-            walk: 0,
-        }
     
         this.handleClickforCancel = this.handleClickforCancel.bind(this);
     }
@@ -23,25 +17,11 @@ class ResultsModal extends React.Component {
                 } 
     }
 
-    calculateCarbon(distance) {
-        let miles = parseFloat(distance)
-
-        let carNum = 404 * 2 * miles
-        let transitNum = 204 * 2 * miles
-        let bikeNum = 0 
-        let walkNum = 0 
-
-        this.setState({ 
-            car: carNum,
-            transit: transitNum,
-            bike: bikeNum,
-            walk: walkNum,
-        })
-
-    }
+  
 
 
     render() {
+        debugger
 
         return (
             <div className="modal-outer-container">
@@ -56,15 +36,14 @@ class ResultsModal extends React.Component {
 
             </div>
             <div className="results-container">
-                {/* {this.calculateCarbon()} */}
 
-                    <div className="car-results">{this.state.car}</div>
+                    <div className="car-results">{this.props.carNum}</div>
                     
-                    <div className="transit-results">{this.state.transit}</div>
+                    <div className="transit-results">{this.props.transitNum}</div>
 
-                    <div className="walk-results">{this.state.walk}</div>
+                    <div className="walk-results">{this.props.walkNum}</div>
 
-                    <div className="bike-results">{this.state.bike}</div>
+                    <div className="bike-results">{this.props.bikeNum}</div>
 
               </div>
           </div>
