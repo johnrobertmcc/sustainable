@@ -71,6 +71,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
+          travelMode: "DRIVING",
           buttonMode: 'DRIVE'
         })
       )
@@ -94,6 +95,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
+          travelMode: "WALKING",
           buttonMode: 'WALK'
         })
       )
@@ -117,6 +119,7 @@ class SideBar extends React.Component {
     }
     this.setState(
         () => ({
+          travelMode: "BICYCLING",
           buttonMode: 'BIKE'
         })
       )
@@ -140,6 +143,7 @@ class SideBar extends React.Component {
     }
      this.setState(
         () => ({
+          travelMode: "TRANSIT",
           buttonMode: 'TRANSIT'
         })
       )
@@ -179,6 +183,7 @@ class SideBar extends React.Component {
               destination: new google.maps.LatLng([destination.lat],[destination.lng]),
               travelMode: google.maps.TravelMode.[travelMode],
             }, (result, status) => {
+              debugger
               if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,

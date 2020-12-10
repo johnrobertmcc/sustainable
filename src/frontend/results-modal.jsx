@@ -67,7 +67,7 @@ class ResultsModal extends React.Component {
                 </p>)
             
         }
-        debugger
+
         
         return(
             <div className='fun-facts'>

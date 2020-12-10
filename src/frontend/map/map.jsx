@@ -11,12 +11,16 @@ import key from '../config/key'
  
 class ShowMap extends React.Component {
 
-    constructor (props) {
+  constructor (props) {
     super(props)
 
     this.autocomplete = null
     this.onLoad = this.onLoad.bind(this)
 
+  }
+
+  componentDidUpdate(prevprops, prevState){
+    debugger
   }
 
   onLoad (autocomplete) {
