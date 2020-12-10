@@ -73,20 +73,10 @@ class ResultsModal extends React.Component {
         return(
             <div className='fun-facts'>
                 The average person emits 27 tons of carbon dioxide a year. 
-                <br></br>
-                <br></br>
                 If you followed this path every day, you would emit {carSitch} tons just by driving this route, 
-                <br></br>
                 or 
-                <br>
-                </br>
                 {transitSitch} tons just by taking public transit!
-
-                <br>
-                </br>
-
-                {lolDoBetter}
-
+                {/* {lolDoBetter} */}
             </div>
         )
 
@@ -134,20 +124,14 @@ class ResultsModal extends React.Component {
 
                     <div className='your-sins'>
                         If you made this trip every day, you would have emitted
-                        <br></br> 
-                        <br></br> 
                         {carEmit} grams of CO₂ since January 1st by driving!
-                        <br></br>
                         -or-
-                        <br></br>
                         {transitEmit} grams of CO₂ since January 1st by taking public transit!
 
                     </div>
-                    <br></br>
-                    <hr></hr>
 
                 {this.funFacts()}
-                <Carousel />
+                {/* <Carousel /> */}
 
               </div>
           </div>
