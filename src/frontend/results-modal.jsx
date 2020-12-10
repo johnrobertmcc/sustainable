@@ -31,41 +31,41 @@ class ResultsModal extends React.Component {
         let lolDoBetter;
 
         if(carSitch && transitSitch < 5){
-            return(
-                <p>
+               lolDoBetter =( 
+               <p>
                     great job staying local!
-                </p>
-            )
+                </p>)
+
         }else if(carSitch && transitSitch < 10){
-            return(
+                lolDoBetter = (
                 <p>
                     wow! better than I expected from you!
-                </p>
-            )
+                </p>)
+            
         }else if(carSitch && transitSitch < 15){
-            return(
+                lolDoBetter = (
                 <p>
                     you can do better
-                </p>
-            )
+                </p>)
+            
         }else if(carSitch && transitSitch < 20){
-            return(
+                lolDoBetter = (
                 <p>
                     yo stop
-                </p>
-            )
+                </p>)
+            
         }else if(carSitch && transitSitch < 25){
-            return(
+            lolDoBetter = (
                 <p>
                     bro please
-                </p>
-            )
+                </p>)
+            
         }else if(carSitch && transitSitch > 25){
-            return(
+            lolDoBetter = (
                 <p>
-                    what would Obama say
-                </p>
-            )
+                    what would Al Gore say?
+                </p>)
+            
         }
         debugger
         
@@ -84,7 +84,7 @@ class ResultsModal extends React.Component {
                 <br>
                 </br>
 
-                {/* {lolDoBetter} */}
+                {lolDoBetter}
 
             </div>
         )
@@ -143,6 +143,7 @@ class ResultsModal extends React.Component {
 
                     </div>
                     <br></br>
+                    <hr></hr>
 
                 {this.funFacts()}
 
