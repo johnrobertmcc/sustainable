@@ -225,6 +225,13 @@ background-color: #FFF201;
   color: black;
   font-size: 24px;
 }
+
+.results-subheader {
+  margin-top: 3vh;
+  color: black;
+  font-size: 42px;
+}
+
 .bio-container {
   display: flex;
   justify-content: space-between;
@@ -309,10 +316,10 @@ a:hover {
     flex-wrap: none;
     position: fixed;
     background-color: #000000;
-    height: 66vh;
+    height: 70vh;
     width: 38vw;
     border-radius: 40px;
-    top: 16vh;
+    top: 15vh;
     bottom: 0;
     right: 0;
     left: 8vw;
@@ -334,13 +341,13 @@ a:hover {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
     font-weight: 100;
     color: white;
     font-size: 24px;
     text-align: center;
-    width: 95%;
-    height: 50px;
+    width: 91%;
+    height: 45px;
 }
 
 .x-icon-style {
@@ -349,15 +356,22 @@ a:hover {
     color: white;
     font-size: 24px;
     border: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.x-icon-style:hover {
+  color: black;
 }
 
 .outer-results {
-    width: 9vw;
+    width: 20vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: baseline;
+    border-bottom: 1px solid;
 }
 
 .walk-results {
