@@ -72,10 +72,10 @@ class ResultsModal extends React.Component {
         
         return(
             <div className='fun-facts'>
-                The average person emits 27 tons of carbon dioxide a year. 
-                If you followed this path every day, you would emit {carSitch} tons just by driving this route, 
-                or 
-                {transitSitch} tons just by taking public transit!
+                <div className="space"> The average </div> <div className="space"> person emits </div> <div className="space">  27 tons of carbon </div> <div className="space"> dioxide a year. </div>
+                <div className="space">If you followed  </div> <div className="space">  this path  </div> <div className="space"> every day,  </div> <div className="space">  you would emit </div> <div className="number-colors"> {carSitch} </div> <div> tons just  </div> <div> by driving  </div> <div> this route, </div> 
+                 <div className="space"> or </div> 
+                 <div className="number-colors"> {transitSitch}  </div> <div className="space"> tons just </div> <div className="space">  by taking </div> <div className="space">  public transit! </div>
                 {/* {lolDoBetter} */}
             </div>
         )
@@ -123,11 +123,11 @@ class ResultsModal extends React.Component {
                     </div>
 
                     <div className='your-sins'>
-                        If you made this trip every day, you would have emitted
-                        {carEmit} grams of CO₂ since January 1st by driving!
-                        -or-
-                        {transitEmit} grams of CO₂ since January 1st by taking public transit!
-
+                        <div className="space"> If you made </div> <div className="space"> this trip </div> <div className="space"> every day, </div> <div className="space">you </div> <div className="space"> would </div> <div className="space"> have emitted </div>
+                        <div className="number-colors"> {carEmit} </div> 
+                        <div className="space">grams of CO₂ </div> <div className="space"> since January </div> <div className="space"> 1st by driving! -or- </div>
+                        <div className="number-colors"> {transitEmit} </div>
+                        <div className="space">grams of CO₂ </div> <div className="space"> since January 1st by </div> <div className="space"> taking public transit!</div>
                     </div>
 
                 {this.funFacts()}

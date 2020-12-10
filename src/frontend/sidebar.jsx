@@ -182,7 +182,7 @@ class SideBar extends React.Component {
               destination: new google.maps.LatLng([destination.lat],[destination.lng]),
               travelMode: google.maps.TravelMode.[travelMode],
             }, (result, status) => {
-              debugger
+            //   debugger
               if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,

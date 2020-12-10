@@ -19,10 +19,7 @@
   height: 90vh;
   width: 92vw;
   border-radius: 40px;
-  -webkit-box-shadow: 0 8px 6px -6px hsl(162, 25%, 31%);
-	   -moz-box-shadow: 0 8px 6px -6px hsl(162, 25%, 31%);
-	        box-shadow: 0 8px 6px -6px hsl(162, 25%, 31%);
-  /* box-shadow: 5px 10px 18px #000000; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; 
 }
 
 @font-face {font-family: "Favorit"; src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot"); 
@@ -232,6 +229,9 @@ background-color: #FFF201;
 }
 
 .your-sins {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   background-color: white;
   padding: 5px;
   border-radius: 5px;
@@ -239,8 +239,14 @@ background-color: #FFF201;
   color: black;
   margin-top: 2vh;
 }
+.space {
+  margin-right: .5vw;
+}
 
 .fun-facts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   background-color: white;
   padding: 5px;
   border-radius: 5px;
@@ -261,7 +267,7 @@ background-color: #FFF201;
     outline: none;
     border: none;
     border-bottom: 1px solid grey;
-    width: 30vw;
+    width: 28vw;
     height: 5vh;
 }
 
@@ -342,6 +348,7 @@ a:hover {
     left: 8vw;
     background: #026EE7;
     z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; 
 }
 
 .results-container {
@@ -351,7 +358,7 @@ a:hover {
     align-items: flex-start;
     height: 60vh;
     width: 80%;
-    
+    overflow: scroll;
 }
 
 .x-icon {
@@ -393,20 +400,30 @@ a:hover {
 
 .walk-results {
   font-size: 32px;
+  color: #FFF201;
 }
 
 .bike-results {
   font-size: 32px;
+  color: #FFF201;
+  margin-left: 1.2vw;
 }
 
 .transit-results {
   font-size: 32px;
+  color: #FFF201;
 }
 
 .car-results {
   font-size: 32px;
+  color: #FFF201;
 }
 
 .carbon-dioxide {
-  font-size: 18px;
+  font-size: 12px;
+}
+
+.number-colors {
+  margin: 0 .5vw 0 .5vw;
+  color: #026EE7;
 }

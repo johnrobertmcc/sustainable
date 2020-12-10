@@ -20,7 +20,7 @@ class ShowMap extends React.Component {
   }
 
   componentDidUpdate(prevprops, prevState){
-    debugger
+    // debugger
   }
 
   onLoad (autocomplete) {
