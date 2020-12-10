@@ -353,7 +353,6 @@ class SideBar extends React.Component {
           <div className="results-modal-container" > 
             <button type='button' onClick={this.onClick} className="Button">
                 {this.state.buttonMode}
-
             </button>
             {this.sendModal()}
           
