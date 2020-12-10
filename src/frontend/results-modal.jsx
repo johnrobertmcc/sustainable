@@ -25,8 +25,8 @@ class ResultsModal extends React.Component {
 
         return (
             <div className="modal-outer-container">
-        <div className="modal-container">
-             <div className="x-icon">
+            <div className="modal-container">
+                <div className="x-icon">
               <button
                 className="x-icon-style"
                 onClick={this.handleClickforCancel}
@@ -37,6 +37,27 @@ class ResultsModal extends React.Component {
             </div>
             <div className="results-container">
 
+
+                    <div className="outer-results">
+                        <div className="car-results">{this.state.car}</div>
+                        <div className="carbon-dioxide">grams of CO</div>
+                    </div>
+
+                    <div className="outer-results">
+                        <div className="transit-results">{this.state.transit} </div>
+                        <div className="carbon-dioxide">grams of CO₂</div>
+                    </div>
+
+                    <div className="outer-results">
+                        <div className="walk-results">{this.state.walk} </div>
+                        <div className="carbon-dioxide">grams of CO₂</div>
+                    </div>
+
+                    <div className="outer-results">
+                        <div className="bike-results">{this.state.bike} </div>
+                        <div className="carbon-dioxide">grams of CO₂</div>
+                    </div>
+
                     <div className="car-results">{this.props.carNum}</div>
                     
                     <div className="transit-results">{this.props.transitNum}</div>
@@ -44,6 +65,7 @@ class ResultsModal extends React.Component {
                     <div className="walk-results">{this.props.walkNum}</div>
 
                     <div className="bike-results">{this.props.bikeNum}</div>
+
 
               </div>
           </div>

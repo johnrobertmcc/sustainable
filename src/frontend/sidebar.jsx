@@ -3,7 +3,7 @@ import Map from './map/map';
 import TopNavContainer from '../frontend/top-nav-container';
 import ResultsModal from "./results-modal";
 import bicycle from "../stylesheets/bicycle.png";
-import walking from "../stylesheets/walking.png";
+import walking from "../stylesheets/logo.png";
 import car from "../stylesheets/car.png";
 import transit from "../stylesheets/transit.png";
 import {
