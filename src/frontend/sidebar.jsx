@@ -8,11 +8,11 @@ import car from "../stylesheets/car.png";
 import transit from "../stylesheets/transit.png";
 import {
   LoadScript,
-  Autocomplete,
-  DirectionsService } from '@react-google-maps/api';
+  Autocomplete } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import key from './config/key';
 Geocode.setApiKey(key)
+
 class SideBar extends React.Component {
   constructor (props) {
     super(props)
@@ -334,7 +334,7 @@ class SideBar extends React.Component {
                   className='custom-control-input'
                   name='travelMode'
                   type='hidden'
-                  checked={this.state.travelMode === 'WALK'}
+                  defaultChecked={this.state.travelMode ==='WALK'}
                   onChange={this.checkWalking}
               />
               <label className='custom-control-label' htmlFor='WALKING'>
