@@ -32,22 +32,22 @@ class ResultsModal extends React.Component {
             </div>
             <div className="results-container">
                 <div className="results-subheader">results</div>
-                    <div className="outer-results">
+                    <div className="outer-results">Driving:
                         <div className="car-results">{this.props.carNum}</div>
                         <div className="carbon-dioxide">grams of CO</div>
                     </div>
 
-                    <div className="outer-results">
+                    <div className="outer-results">Transit:
                         <div className="transit-results">{this.props.transitNum}</div>
                         <div className="carbon-dioxide">grams of CO₂</div>
                     </div>
 
-                    <div className="outer-results">
+                    <div className="outer-results">Walking:
                         <div className="walk-results">{this.props.walkNum}</div>
                         <div className="carbon-dioxide">grams of CO₂</div>
                     </div>
 
-                    <div className="outer-results">
+                    <div className="outer-results">Biking:
                         <div className="bike-results">{this.props.bikeNum}</div>
                         <div className="carbon-dioxide">grams of CO₂</div>
                     </div>

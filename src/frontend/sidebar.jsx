@@ -234,11 +234,9 @@ class SideBar extends React.Component {
             walkNum: walkNum,
             test:true
         })
-
         // Greenhouse Gas Data
         // https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle
         // https://www.apta.com/wp-content/uploads/Standards_Documents/APTA-SUDS-CC-RP-001-09_Rev-1.pdf
-
     }
 
   render() {
