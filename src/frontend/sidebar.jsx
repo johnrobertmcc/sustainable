@@ -9,8 +9,7 @@ import transit from "../stylesheets/transit.png";
 import {
   LoadScript,
   Autocomplete,
-  DirectionsService
-  } from '@react-google-maps/api';
+  DirectionsService } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import key from './config/key';
 Geocode.setApiKey(key)
@@ -48,15 +47,9 @@ class SideBar extends React.Component {
 
    toggleModal() {
        let modal = document.getElementsByClassName("modal-outer-container");
-       if(modal[0].style.display= "none") {
-                for(let i = 0; i < modal.length; i++){
+            for(let i = 0; i < modal.length; i++){
                     modal[i].style.display = 'block'
-                } 
-         } else {
-                 for(let i = 0; i < modal.length; i++){
-                     modal[i].style.display = 'none'
-                } 
-        }
+            } 
    }
 
   handleCarModeClick() {
@@ -211,8 +204,7 @@ class SideBar extends React.Component {
 
     sendModal(){
       let {carNum, transitNum, bikeNum, walkNum} = this.state;
-      debugger
-    
+   
       return(
           <ResultsModal
             travelMode={this.state.travelMode}
@@ -228,15 +220,13 @@ class SideBar extends React.Component {
 
     }
 
-
     calculateCarbon(distance) {
         let miles = parseFloat(distance)
-        let carNum = 404 * 2 * miles
-        let transitNum = 204 * 2 * miles
+        let carNum = Math.ceil(404 * 2 * miles)
+        let transitNum = Math.ceil(204 * 2 * miles)
         let bikeNum = 0 
         let walkNum = 0 
-        debugger
-
+ 
         this.setState({ 
             carNum: carNum,
             transitNum: transitNum,
@@ -244,7 +234,9 @@ class SideBar extends React.Component {
             walkNum: walkNum,
             test:true
         })
-
+        // Greenhouse Gas Data
+        // https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle
+        // https://www.apta.com/wp-content/uploads/Standards_Documents/APTA-SUDS-CC-RP-001-09_Rev-1.pdf
     }
 
   render() {
@@ -357,7 +349,6 @@ class SideBar extends React.Component {
 
             </button>
             {this.state.test ? this.sendModal() : null}
-
           
           </div>
         <div className="bio-container">
