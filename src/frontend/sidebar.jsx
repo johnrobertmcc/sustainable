@@ -353,16 +353,23 @@ class SideBar extends React.Component {
           </div>
         <div className="bio-container">
         {/* <div className="subheader">By:</div> */}
-         <div className="subheader">
-             <a href="https://drewshroyer.github.io/" target="_blank">
-             Drew Shroyer
-             </a>
-             </div>
-         <div className="subheader">
-             <a href="https://drewshroyer.github.io/" target="_blank">JR McCann</a></div>
-         </div>
+            
+            <div className="subheader">
+              <a href="https://drewshroyer.github.io/" target="_blank">
+              Drew Shroyer
+              </a>
+            </div>
+            
+            <div className="subheader">
+                <a href="https://www.johnrobertmcc.com/" target="_blank">
+                  JR McCann
+                </a>
+            </div>
+
           </div>
         </div>
+        </div>
+        
           <div className='map-container'>
                 <Map origin={origin} directions={directions} destination={destination} travelMode={travelMode} searched={searched}/>
           </div>
