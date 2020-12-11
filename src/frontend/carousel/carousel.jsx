@@ -45,19 +45,23 @@ class Carousel extends React.Component {
   render () {
     return (
       <div className="carousel">
-          
-          <Arrow
-          direction="left"
-          clickFunction={ this.previousSlide }
-          glyph="prev" />
 
         {this.props.facts[this.state.current]}
 
+          <div className="arrow-container">
+            
+          <Arrow
+          direction="left"
+          clickFunction={ this.previousSlide }
+          glyph="<" />
+
          <Arrow
+         className="arrows"
           direction="right"
           clickFunction={ this.nextSlide }
-          glyph="next" />
-      
+          glyph=">" />
+
+        </div>
       </div>
     );
   }

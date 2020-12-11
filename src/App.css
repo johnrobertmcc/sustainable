@@ -249,11 +249,14 @@ background-color: #ffce19;
   color: black;
   margin-top: 2vh;
 }
+
 .space {
   margin-right: .5vw;
 }
 
 .fun-facts {
+  height: 15vh;
+  width: 30vw;
   display: inline-block;
   background-color: white;
   padding: 7px;
@@ -262,8 +265,9 @@ background-color: #ffce19;
   color: black;
   margin-top: 1vh;
   margin-bottom: 1vh;
-  text-align:center;
-  font-size:12px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 3vh;
 }
 
 .bio-container {
@@ -365,11 +369,11 @@ a:hover {
 .results-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    height: 60vh;
+    height: 55vh;
     width: 80%;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .x-icon {
@@ -401,6 +405,7 @@ a:hover {
 
 .outer-results {
     width: 20vw;
+    height: 6vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -438,13 +443,19 @@ a:hover {
   color: #026EE7;
 }
 
+.arrow-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .slide-arrow.right{
-  font-size: 11px;;
+  font-size: 30px;;
 }
 .slide-arrow.left{
-  margin-top: 2vh;
-  font-size: 11px;
+  font-size: 30px;
 }
+
 .slide-arrow.right:hover{
   color:  #FFF201
 }
