@@ -111,6 +111,7 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .right-sidebar {
@@ -214,9 +215,20 @@ background-color: #ffce19;
   justify-content: space-around;
   /* border: 1px solid lightgray; */
   height: 8vh;
+  /* width:5vw; */
   margin-bottom: 3vh;
   margin-top: 2vh;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
+/* 
+@media screen and (max-width: 1500px; max-height: 676px;){
+  .transit-options{
+    display:none;
+    
+  }
+} */
 
 .Button:hover {
     color: #026EE7;
