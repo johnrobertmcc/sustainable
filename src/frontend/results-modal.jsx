@@ -31,21 +31,24 @@ class ResultsModal extends React.Component {
         let transitSitch = (transitNum * day)/1000000;
         let carEmit = carNum * day;
         let transitEmit = transitNum * day;
+        debugger
 
-        facts.push( 
-            <div className='fun-facts'>
-                    If you made this trip every day, you would have emitted  <span className='num-color'>{carEmit}</span> grams of CO₂ since January 1st by driving, or  <span className='num-color'>{transitEmit}</span> grams of CO₂ since January 1st by taking public transit!
-            </div>
-            )
+        if(carNum && transitNum !== 0){
 
-        facts.push(
-            <div className='fun-facts'>
-                The average person emits <span className='num-color'>27 tons</span> of carbon dioxide a year..
-                <br></br>
-                If you followed this path every day, you would emit <span className='num-color'>{carSitch}</span> tons/year just by driving this route,
-                or  <span className='num-color'>{transitSitch}</span> tons/year just by taking public transit!
-            </div>
-        )
+            facts.push( 
+                <div className='fun-facts'>
+                        If you made this trip every day, you would have emitted  <span className='num-color'>{carEmit}</span> grams of CO₂ since January 1st by driving, or  <span className='num-color'>{transitEmit}</span> grams of CO₂ since January 1st by taking public transit!
+                </div>
+                )
+
+            facts.push(
+                <div className='fun-facts'>
+                    The average person emits <span className='num-color'>27 tons</span> of carbon dioxide a year..
+                    <br></br>
+                    If you followed this path every day, you would emit <span className='num-color'>{carSitch}</span> tons/year just by driving this route,
+                    or  <span className='num-color'>{transitSitch}</span> tons/year just by taking public transit!
+                </div>
+        )}
         facts.push(
             <div className='fun-facts'>
                 Walking and biking are great ways to reduce your carbon footprint!
