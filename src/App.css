@@ -222,13 +222,6 @@ background-color: #ffce19;
 *::-webkit-scrollbar {
   display: none;
 }
-/* 
-@media screen and (max-width: 1500px; max-height: 676px;){
-  .transit-options{
-    display:none;
-    
-  }
-} */
 
 .Button:hover {
     color: #026EE7;
