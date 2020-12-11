@@ -6,6 +6,10 @@
     url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
     url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.svg#Favorit") format("svg"); /* iOS 4.1- */
 }
+
+*{
+  font-family: 'Favorit';
+}
 .App {
   text-align: center;
   font-family: 'Favorit';
