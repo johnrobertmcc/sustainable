@@ -455,3 +455,10 @@ a:hover {
 .carousel{
   display:inline;
 }
+
+.fun-facts >li{
+  font-size: 9px
+}
+.source{
+  color:#9d9a71;
+}
