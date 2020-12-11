@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from "react";
-import { hydrate } from 'react-dom';
-import Carousel from './carousel/carousel'
+
 ;
 class ResultsModal extends React.Component {
 
@@ -29,45 +27,6 @@ class ResultsModal extends React.Component {
         let day = this.daysIntoYear(d);
         let carSitch = (carNum * day)/1000000;
         let transitSitch = (transitNum * day)/1000000;
-        let lolDoBetter;
-
-        if(carSitch && transitSitch < 5){
-               lolDoBetter =( 
-               <p>
-                    great job staying local!
-                </p>)
-
-        }else if(carSitch && transitSitch < 10){
-                lolDoBetter = (
-                <p>
-                    wow! better than I expected from you!
-                </p>)
-            
-        }else if(carSitch && transitSitch < 15){
-                lolDoBetter = (
-                <p>
-                    you can do better
-                </p>)
-            
-        }else if(carSitch && transitSitch < 20){
-                lolDoBetter = (
-                <p>
-                    yo stop
-                </p>)
-            
-        }else if(carSitch && transitSitch < 25){
-            lolDoBetter = (
-                <p>
-                    bro please
-                </p>)
-            
-        }else if(carSitch && transitSitch > 25){
-            lolDoBetter = (
-                <p>
-                    what would Al Gore say?
-                </p>)
-            
-        }
 
         
         return(
@@ -76,7 +35,6 @@ class ResultsModal extends React.Component {
                 <div className="space">If you followed  </div> <div className="space">  this path  </div> <div className="space"> every day,  </div> <div className="space">  you would emit </div> <div className="number-colors"> {carSitch} </div> <div> tons just  </div> <div> by driving  </div> <div> this route, </div> 
                  <div className="space"> or </div> 
                  <div className="number-colors"> {transitSitch}  </div> <div className="space"> tons just </div> <div className="space">  by taking </div> <div className="space">  public transit! </div>
-                {/* {lolDoBetter} */}
             </div>
         )
 

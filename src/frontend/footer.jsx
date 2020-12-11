@@ -10,6 +10,7 @@ class Footer extends React.Component {
                  <a
                     href="https://www.linkedin.com/in/drew-shroyer-861b32a4/"
                     className="footer-link"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     LinkedIn
@@ -17,7 +18,7 @@ class Footer extends React.Component {
                   <a
                     href="https://github.com/drewshroyer"
                     className="footer-link"
-                    target="_blank"
+                    target="_blank" rel="noopener noreferrer"
                   >
                     Github
                   </a>
@@ -29,6 +30,7 @@ class Footer extends React.Component {
                     href="https://www.linkedin.com/in/jrmcc/"
                     className="footer-link"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     LinkedIn
                   </a>
@@ -36,6 +38,7 @@ class Footer extends React.Component {
                     href="https://github.com/johnrobertmcc"
                     className="footer-link"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Github
                   </a>
@@ -47,6 +50,7 @@ class Footer extends React.Component {
                     href="https://www.linkedin.com/in/arash-afghahi-4aa05193/"
                     className="footer-link"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     LinkedIn
                   </a>
@@ -54,6 +58,7 @@ class Footer extends React.Component {
                     href="https://github.com/drewshroyer"
                     className="footer-link"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Github
                   </a>

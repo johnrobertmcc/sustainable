@@ -266,10 +266,9 @@ class SideBar extends React.Component {
                             onPlaceChanged={this.onPlaceChanged}
                             >
                             <input
-                                id='ORIGIN' placeholder="ORIGIN" className='form-control' type='text'
+                                id='ORIGIN' className='form-control' type='text'
                                 placeholder="enter an origin"
                                 ref={this.getOrigin}
-                                className='form-control'
                                 />
                             </Autocomplete>
                             </LoadScript>
@@ -285,7 +284,7 @@ class SideBar extends React.Component {
                 onPlaceChanged={this.onPlaceChanged}
                 >
                 <input
-                  id='DESTINATION' placeholder="DESTINATION" className='form-control' type='text'
+                  id='DESTINATION' className='form-control' type='text'
                   placeholder="enter a destination"
                   ref={this.getDestination}
                   />
@@ -361,13 +360,13 @@ class SideBar extends React.Component {
         {/* <div className="subheader">By:</div> */}
             
             <div className="subheader">
-              <a href="https://drewshroyer.github.io/" target="_blank">
+              <a href="https://drewshroyer.github.io/" target="_blank" rel="noreferrer">
               Drew Shroyer
               </a>
             </div>
             
             <div className="subheader">
-                <a href="https://www.johnrobertmcc.com/" target="_blank">
+                <a href="https://www.johnrobertmcc.com/" target="_blank" rel="noreferrer">
                   JR McCann
                 </a>
             </div>

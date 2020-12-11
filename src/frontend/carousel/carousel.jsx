@@ -1,6 +1,5 @@
 import React from 'react';
 import ItemsCarousel from 'react-items-carousel';
-import range from 'lodash/range';
 
 export default class Test extends React.Component {
 
