@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/walk-this-way/static/css/main.ce8d6537.chunk.css",
-    "main.js": "/walk-this-way/static/js/main.710df9e4.chunk.js",
-    "main.js.map": "/walk-this-way/static/js/main.710df9e4.chunk.js.map",
-    "runtime-main.js": "/walk-this-way/static/js/runtime-main.de0ced06.js",
-    "runtime-main.js.map": "/walk-this-way/static/js/runtime-main.de0ced06.js.map",
-    "static/js/2.a426d6f2.chunk.js": "/walk-this-way/static/js/2.a426d6f2.chunk.js",
-    "static/js/2.a426d6f2.chunk.js.map": "/walk-this-way/static/js/2.a426d6f2.chunk.js.map",
-    "static/js/3.cbebc67d.chunk.js": "/walk-this-way/static/js/3.cbebc67d.chunk.js",
-    "static/js/3.cbebc67d.chunk.js.map": "/walk-this-way/static/js/3.cbebc67d.chunk.js.map",
+    "main.css": "/walk-this-way/static/css/main.c2f05d70.chunk.css",
+    "main.js": "/walk-this-way/static/js/main.7ddc1490.chunk.js",
+    "main.js.map": "/walk-this-way/static/js/main.7ddc1490.chunk.js.map",
+    "runtime-main.js": "/walk-this-way/static/js/runtime-main.15fb26b2.js",
+    "runtime-main.js.map": "/walk-this-way/static/js/runtime-main.15fb26b2.js.map",
+    "static/js/2.388b21f5.chunk.js": "/walk-this-way/static/js/2.388b21f5.chunk.js",
+    "static/js/2.388b21f5.chunk.js.map": "/walk-this-way/static/js/2.388b21f5.chunk.js.map",
+    "static/js/3.cee6f5bf.chunk.js": "/walk-this-way/static/js/3.cee6f5bf.chunk.js",
+    "static/js/3.cee6f5bf.chunk.js.map": "/walk-this-way/static/js/3.cee6f5bf.chunk.js.map",
     "index.html": "/walk-this-way/index.html",
-    "static/css/main.ce8d6537.chunk.css.map": "/walk-this-way/static/css/main.ce8d6537.chunk.css.map",
-    "static/js/2.a426d6f2.chunk.js.LICENSE.txt": "/walk-this-way/static/js/2.a426d6f2.chunk.js.LICENSE.txt",
+    "static/css/main.c2f05d70.chunk.css.map": "/walk-this-way/static/css/main.c2f05d70.chunk.css.map",
+    "static/js/2.388b21f5.chunk.js.LICENSE.txt": "/walk-this-way/static/js/2.388b21f5.chunk.js.LICENSE.txt",
     "static/media/bicycle.ee8e5962.png": "/walk-this-way/static/media/bicycle.ee8e5962.png",
     "static/media/car.319bfebf.png": "/walk-this-way/static/media/car.319bfebf.png",
     "static/media/logo.1ae1fdaf.png": "/walk-this-way/static/media/logo.1ae1fdaf.png",
     "static/media/transit.05ff19a8.png": "/walk-this-way/static/media/transit.05ff19a8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.de0ced06.js",
-    "static/js/2.a426d6f2.chunk.js",
-    "static/css/main.ce8d6537.chunk.css",
-    "static/js/main.710df9e4.chunk.js"
+    "static/js/runtime-main.15fb26b2.js",
+    "static/js/2.388b21f5.chunk.js",
+    "static/css/main.c2f05d70.chunk.css",
+    "static/js/main.7ddc1490.chunk.js"
   ]
 }
