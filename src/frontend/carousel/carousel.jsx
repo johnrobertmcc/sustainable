@@ -53,13 +53,13 @@ class Carousel extends React.Component {
           <Arrow
           direction="left"
           clickFunction={ this.previousSlide }
-          glyph="<" />
+          glyph="&#9664;" />
 
          <Arrow
          className="arrows"
           direction="right"
           clickFunction={ this.nextSlide }
-          glyph=">" />
+          glyph="&#9654;" />
 
         </div>
       </div>
