@@ -107,7 +107,9 @@ class ResultsModal extends React.Component {
                         <div className="bike-results">{this.props.bikeNum}</div>
                         <div className="carbon-dioxide">grams of CO₂</div>
                     </div>
-                <Carousel facts={facts}/>
+                    {this.props.carNum === 0 ? null : 
+                        <Carousel facts={facts}/>
+                    }
 
               </div>
           </div>
