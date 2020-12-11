@@ -182,7 +182,7 @@ class SideBar extends React.Component {
               destination: new google.maps.LatLng([destination.lat],[destination.lng]),
               travelMode: google.maps.TravelMode.[travelMode],
             }, (result, status) => {
-            //   debugger
+
               if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,
@@ -210,7 +210,6 @@ class SideBar extends React.Component {
 
     sendModal(){
       let {carNum, searched, transitNum, bikeNum, walkNum} = this.state;
-      debugger
    
       if(searched){
       return(
