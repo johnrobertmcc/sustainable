@@ -1,6 +1,8 @@
 import React from 'react';
+import Carousel from './carousel/carousel'
 
-;
+let facts=[];
+
 class ResultsModal extends React.Component {
 
     constructor(props) {
@@ -27,25 +29,27 @@ class ResultsModal extends React.Component {
         let day = this.daysIntoYear(d);
         let carSitch = (carNum * day)/1000000;
         let transitSitch = (transitNum * day)/1000000;
+        let carEmit = carNum * day;
+        let transitEmit = transitNum * day;
 
-        
-        return(
+        facts.push( 
+            <div className='fun-facts'>
+                    If you made this trip every day, you would have emitted  <span className='num-color'>{carEmit}</span> grams of CO₂ since January 1st by driving! or  <span className='num-color'>{transitEmit}</span> grams of CO₂ since January 1st by taking public transit!
+            </div>
+            )
+
+        facts.push(
             <div className='fun-facts'>
                 The average person emits 27 tons of carbon dioxide a year.
-                If you followed this path every day, you would emit {carSitch} tons just by driving this route,
-                or {transitSitch} tons just by taking public transit!
-            </div>
-        )
+                If you followed this path every day, you would emit <span className='num-color'>{carSitch}</span> tons just by driving this route,
+                or  <span className='num-color'>{transitSitch}</span> tons just by taking public transit!
+            </div>)
 
     }
 
     render() {
+        this.funFacts()
 
-        let {carNum, transitNum} = this.props;
-        let d = new Date();
-        let day = this.daysIntoYear(d);
-        let carEmit = carNum * day;
-        let transitEmit = transitNum * day;
         return (
             <div className="modal-outer-container">
             <div className="modal-container">
@@ -78,12 +82,7 @@ class ResultsModal extends React.Component {
                         <div className="bike-results">{this.props.bikeNum}</div>
                         <div className="carbon-dioxide">grams of CO₂</div>
                     </div>
-
-                    <div className='your-sins'>
-                        If you made this trip every day, you would have emitted {carEmit} grams of CO₂ since January 1st by driving! or {transitEmit} grams of CO₂ since January 1st by taking public transit!
-                    </div>
-
-                {this.funFacts()}
+                <Carousel facts={facts}/>
 
               </div>
           </div>

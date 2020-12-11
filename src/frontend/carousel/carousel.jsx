@@ -1,66 +1,66 @@
 import React from 'react';
-import ItemsCarousel from 'react-items-carousel';
 
-export default class Test extends React.Component {
+const Arrow = ({ direction, clickFunction, glyph }) => (
+  <div
+    className={ `slide-arrow ${direction}` }
+    onClick={ clickFunction }>
+    { glyph }
+  </div>
+);
 
-  componentWillMount() {
+class Carousel extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      current: 0
+    };
+
+    this.previousSlide = this.previousSlide.bind(this)
+    this.nextSlide = this.nextSlide.bind(this)
+  }
+
+  previousSlide () {
+    let {facts} = this.props;
+    const lastIndex = facts.length - 1;
+    const { current } = this.state;
+    const shouldResetIndex = current === 0;
+    const index =  shouldResetIndex ? lastIndex : current - 1;
+
     this.setState({
-      children: [],
-      activeItemIndex: 0,
+      current: index
     });
-
-    // setTimeout(() => {
-    //   this.setState({
-    //     children: createChildren(20),
-    //   })
-    // }, 100);
   }
 
-  createChildren(n) {
-    for(let i = 0; i < n;i++){
+  nextSlide () {
+    let {facts} = this.props;
+    const lastIndex = facts.length - 1;
+    const { current } = this.state;
+    const shouldResetIndex = current === lastIndex;
+    const index =  shouldResetIndex ? 0 : current + 1;
 
-        (<div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
-        }
-    }
-    
-
-  changeActiveItem (activeItemIndex){
-      this.setState({ activeItemIndex });
-    }
-
-  render() {
-    const {
-      activeItemIndex,
-      children,
-    } = this.state;
-
+    this.setState({
+      current: index
+    });
+  }
+  render () {
     return (
-      <ItemsCarousel
-        // Placeholder configurations
-        enablePlaceholder
-        numberOfPlaceholderItems={5}
-        minimumPlaceholderTime={1000}
-        placeholderItem={<div style={{ height: 200, width: 150, background: '#900' }}>Placeholder</div>}
+      <div className="carousel">
+          
+          <Arrow
+          direction="left"
+          clickFunction={ this.previousSlide }
+          glyph="prev" />
 
-        // Carousel configurations
-        numberOfCards={3}
-        gutter={12}
-        showSlither={true}
-        firstAndLastGutter={true}
-        freeScrolling={false}
+        {this.props.facts[this.state.current]}
 
-        // Active item configurations
-        requestToChangeActive={this.changeActiveItem}
-        activeItemIndex={activeItemIndex}
-        activePosition={'center'}
-
-        chevronWidth={24}
-        rightChevron={'>'}
-        leftChevron={'<'}
-        outsideChevron={false}
-      >
-        {children}
-      </ItemsCarousel>
-    );  
+         <Arrow
+          direction="right"
+          clickFunction={ this.nextSlide }
+          glyph="next" />
+      
+      </div>
+    );
   }
-} 
+}
+
+export default Carousel;

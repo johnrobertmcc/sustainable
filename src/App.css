@@ -254,15 +254,16 @@ background-color: #ffce19;
 }
 
 .fun-facts {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: inline-block;
   background-color: white;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 7px;
+  border-radius: 8px;
   text-align: left;
   color: black;
-  margin-top: 2vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  text-align:center;
+  font-size:12px;
 }
 
 .bio-container {
@@ -433,7 +434,24 @@ a:hover {
   font-size: 12px;
 }
 
-.number-colors {
-  margin: 0 .5vw 0 .5vw;
+.num-color {
   color: #026EE7;
+}
+
+.slide-arrow.right{
+  font-size: 11px;;
+}
+.slide-arrow.left{
+  margin-top: 2vh;
+  font-size: 11px;
+}
+.slide-arrow.right:hover{
+  color:  #FFF201
+}
+.slide-arrow.left:hover{
+  color:  #FFF201
+}
+
+.carousel{
+  display:inline;
 }
