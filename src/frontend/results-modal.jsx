@@ -31,7 +31,6 @@ class ResultsModal extends React.Component {
         let transitSitch = (transitNum * day)/1000000;
         let carEmit = carNum * day;
         let transitEmit = transitNum * day;
-        debugger
 
         if(carNum && transitNum !== 0){
 
@@ -63,7 +62,7 @@ class ResultsModal extends React.Component {
                 <li>Ozone: Contributing around 5 % of global warming and has seen a 42 % increase since 1750.</li>
                 <li>Nitrous oxide: An extremely powerful greenhouse gas with a warming potential 265 times higher than carbon.</li>
 
-                <a className="source" href="https://www.theworldcounts.com/challenges/climate-change/global-warming/global-co2-emissions/story" target="_blank">Sources</a>
+                <a className="source" href="https://www.theworldcounts.com/challenges/climate-change/global-warming/global-co2-emissions/story" target="_blank"></a>
                 
             </div>
         )
