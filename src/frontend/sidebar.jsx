@@ -182,11 +182,14 @@ class SideBar extends React.Component {
               destination: new google.maps.LatLng([destination.lat],[destination.lng]),
               travelMode: google.maps.TravelMode.[travelMode],
             }, (result, status) => {
-            //   debugger
+
               if (status === google.maps.DirectionsStatus.OK) {
                 this.setState({
                   directions: result,
+                  searched: true
                 });
+                this.calculateCarbon(this.state.directions.routes[0].legs[0].distance.text)
+                this.toggleModal()
               } else {
                 console.error(`error fetching directions ${result}`);
               }
@@ -194,9 +197,8 @@ class SideBar extends React.Component {
 
         }).then(() => {
           if(this.state.directions !== null){
-            this.calculateCarbon(this.state.directions.routes[0].legs[0].distance.text)
           };
-          this.setState({searched: true})
+          this.setState({})
           this.toggleModal();
 
         }
@@ -207,8 +209,9 @@ class SideBar extends React.Component {
 
 
     sendModal(){
-      let {carNum, transitNum, bikeNum, walkNum} = this.state;
+      let {carNum, searched, transitNum, bikeNum, walkNum} = this.state;
    
+      if(searched){
       return(
           <ResultsModal
             travelMode={this.state.travelMode}
@@ -220,7 +223,7 @@ class SideBar extends React.Component {
             bikeNum={bikeNum}
             walkNum={walkNum}
           />
-      )
+      )}
 
     }
 
@@ -262,10 +265,9 @@ class SideBar extends React.Component {
                             onPlaceChanged={this.onPlaceChanged}
                             >
                             <input
-                                id='ORIGIN' placeholder="ORIGIN" className='form-control' type='text'
+                                id='ORIGIN' className='form-control' type='text'
                                 placeholder="enter an origin"
                                 ref={this.getOrigin}
-                                className='form-control'
                                 />
                             </Autocomplete>
                             </LoadScript>
@@ -281,7 +283,7 @@ class SideBar extends React.Component {
                 onPlaceChanged={this.onPlaceChanged}
                 >
                 <input
-                  id='DESTINATION' placeholder="DESTINATION" className='form-control' type='text'
+                  id='DESTINATION' className='form-control' type='text'
                   placeholder="enter a destination"
                   ref={this.getDestination}
                   />
@@ -349,7 +351,6 @@ class SideBar extends React.Component {
           <div className="results-modal-container" > 
             <button type='button' onClick={this.onClick} className="Button">
                 {this.state.buttonMode}
-
             </button>
             {this.sendModal()}
           
@@ -358,13 +359,13 @@ class SideBar extends React.Component {
         {/* <div className="subheader">By:</div> */}
             
             <div className="subheader">
-              <a href="https://drewshroyer.github.io/" target="_blank">
+              <a href="https://drewshroyer.github.io/" target="_blank" rel="noreferrer">
               Drew Shroyer
               </a>
             </div>
             
             <div className="subheader">
-                <a href="https://www.johnrobertmcc.com/" target="_blank">
+                <a href="https://www.johnrobertmcc.com/" target="_blank" rel="noreferrer">
                   JR McCann
                 </a>
             </div>

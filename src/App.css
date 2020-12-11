@@ -1,5 +1,15 @@
-@import url(//db.onlinewebfonts.com/c/04c4a36facccf2d0906a0f1ed61036ef?family=Favorit);
+@font-face {font-family: "Favorit";
+    src: url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot"); /* IE9*/
+    src: url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.woff2") format("woff2"), /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.woff") format("woff"), /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("http://db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.svg#Favorit") format("svg"); /* iOS 4.1- */
+}
 
+*{
+  font-family: 'Noto Sans KR', sans-serif;
+}
 .App {
   text-align: center;
   font-family: 'Favorit';
@@ -23,12 +33,6 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; 
 }
 
-@font-face {font-family: "Favorit"; src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot"); 
-  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.eot?#iefix") format("embedded-opentype");
-  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.woff2") format("woff2");
-  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.woff") format("woff");
-  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.ttf") format("truetype");
-  src: url("//db.onlinewebfonts.com/t/04c4a36facccf2d0906a0f1ed61036ef.svg#Favorit") format("svg"); }
 
 body {
   background-color:  #64A692; 
