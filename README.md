@@ -8,10 +8,10 @@
 - Worldwide Google Map API integration
 - Average C02 emitted based on how the user prefers to travel
 - Custom carousel with cited facts based on the user's route
-- Runner up for 1st place in Mintbean's Decemebr 2020 Social Justice Hackathon
+- Runner up for 1st place in Mintbean's December 2020 Social Justice Hackathon
+
 
 ## Code Highlights
-
 ### Google Maps Integration
 One of the most challenging pieces of this hackathon project, yet simple in retrospect, the Google Maps API allows the user to see the entire globe. It also layers routes based on the user's mode of transportation, which is given information through props.
 ```javascript
